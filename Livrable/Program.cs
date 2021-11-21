@@ -6,7 +6,7 @@ namespace Livrable
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Controller controller = new Controller();
         }
     }
 }
