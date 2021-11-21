@@ -6,6 +6,6 @@ namespace Livrable
 {
     public interface IController
     {
-        void createSave();
+        void updateSave();
     }
 }

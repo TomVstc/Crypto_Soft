@@ -68,7 +68,7 @@ namespace Livrable
             {
                 Console.WriteLine("Veuillez entrer le nom de votre sauvegarde");
                 Name = Console.ReadLine();
-                Console.WriteLine("Veuillez entrer le chemin source");
+                Console.WriteLine("Veuillez entrer le fichier source (chemin)");
                 FileSource = Console.ReadLine();
                 Console.WriteLine("Veuillez entrer le chemin de destination");
                 FileTarget = Console.ReadLine();
@@ -78,7 +78,7 @@ namespace Livrable
                 isSaveValid = checkIfSaveInputIsValid();
             }
 
-            controller.createSave();
+            controller.updateSave();
 
         }
 
@@ -88,7 +88,7 @@ namespace Livrable
             bool isValid = false;
             if(Name != "")
             {
-                if (Directory.Exists(FileSource))
+                if (File.Exists(FileSource))
                 {
                     if (Directory.Exists(FileTarget))
                     {
@@ -107,6 +107,7 @@ namespace Livrable
                         Console.WriteLine("Destination invalide");
                         startSave();
                     }
+
                 }
                 else
                 {

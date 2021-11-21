@@ -20,12 +20,17 @@ namespace Livrable
             viewSave.startSave();
         }
 
+        public void updateSave()
+        {
+            model.Save = viewSave;
+            createSave();
+        }
+        
         // When a state is in good state, the controller
         // call the model to create the save
         public void createSave()
         {
-            model.Save = viewSave;
-
+            model.createSave();
         }
 
     }
