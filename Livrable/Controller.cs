@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Livrable
 {
-    class Controller
+    class Controller : IController
     {
         private Model model;
         private ViewSave viewSave;
@@ -14,8 +14,19 @@ namespace Livrable
             model = new Model();
             viewSave = new ViewSave();
 
+            viewSave.setController(this);
+
             // Call the function to start a save
             viewSave.startSave();
         }
+
+        // When a state is in good state, the controller
+        // call the model to create the save
+        public void createSave()
+        {
+            model.Save = viewSave;
+
+        }
+
     }
 }
