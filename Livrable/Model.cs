@@ -6,5 +6,10 @@ namespace Livrable
 {
     class Model
     {
+
+        public Model()
+        {
+
+        }
     }
 }
