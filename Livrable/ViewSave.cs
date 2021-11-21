@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace Livrable
 {
@@ -10,38 +11,116 @@ namespace Livrable
         private string name;
         private string fileSource;
         private string fileTarget;
-        private enumType type;
-        private string typeNumber;
-        public enum enumType { Aucun, Complet, Différentiel}
+        private string type;
+
+        private IController controller;
+
+        // Creation of set and get
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public string FileSource
+        {
+            get { return fileSource; }
+            set { fileSource = value; }
+        }
+        public string FileTarget
+        {
+            get { return fileTarget; }
+            set { fileTarget = value; }
+        }
+        public string Type
+        {
+            get { return type; }
+            set { type = value;  }
+        }
+        public IController Controller
+        {
+            get { return Controller; }
+            set { Controller = value; }
+        }
 
         // Constructor call at the creation
         public ViewSave()
         {
-            name = "";
-            fileSource = "";
-            fileTarget = "";
-            type = enumType.Aucun;
-            typeNumber = "";            
+            Name = "";
+            FileSource = "";
+            FileTarget = "";
+            Type = "";            
         }
 
+        // Link ViewSave to controller
+        public void setController(IController cont)
+        {
+            controller = cont;
+        }
+
+        // Create a Save
         public void startSave()
         {
-            Console.WriteLine("Veuillez entrer le nom de votre sauvegarde");
-            name = Console.ReadLine();
-            Console.WriteLine("Veuillez entrer le chemin source");
-            fileSource = Console.ReadLine();
-            Console.WriteLine("Veuillez entrer le chemin de destination");
-            fileTarget = Console.ReadLine();
-            Console.WriteLine("Veuillez entrer le type de sauvegarde : 1 = Complet / 2 = Différentiel");
-            typeNumber = Console.ReadLine();
-            if (typeNumber == "1")
+            bool isSaveValid = false;
+
+            Console.WriteLine("\nEntrez les informations concernant la sauvegarde : ");
+
+            while(isSaveValid != true)
             {
-                type = enumType.Complet;
+                Console.WriteLine("Veuillez entrer le nom de votre sauvegarde");
+                Name = Console.ReadLine();
+                Console.WriteLine("Veuillez entrer le chemin source");
+                FileSource = Console.ReadLine();
+                Console.WriteLine("Veuillez entrer le chemin de destination");
+                FileTarget = Console.ReadLine();
+                Console.WriteLine("Veuillez entrer le type de sauvegarde : Complet / Differentiel");
+                Type = Console.ReadLine();
+
+                isSaveValid = checkIfSaveInputIsValid();
             }
-            else if(typeNumber == "2")
+
+            controller.createSave();
+
+        }
+
+        // Function to valid if a save is in good type
+        public bool checkIfSaveInputIsValid()
+        {
+            bool isValid = false;
+            if(Name != "")
             {
-                type = enumType.Différentiel;
+                if (Directory.Exists(FileSource))
+                {
+                    if (Directory.Exists(FileTarget))
+                    {
+                        if (Type == "Complet" || Type == "Differentiel")
+                        {
+                            isValid = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Type invalide");
+                            startSave();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Destination invalide");
+                        startSave();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Source invalide");
+                    startSave();
+                }
             }
+            else
+            {
+                Console.WriteLine("Nom invalide");
+                startSave();
+            }
+
+            return isValid;
         }
 
     }
