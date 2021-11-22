@@ -62,6 +62,8 @@ namespace Livrable
         // Constructor call at the creation
         public ViewSave()
         {
+            Destination = "";
+            Extension = "";
             Name = "";
             FileSource = "";
             FileTarget = "";

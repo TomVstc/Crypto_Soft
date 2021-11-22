@@ -19,14 +19,7 @@ namespace Livrable
 
         // Constructor
         public Model()
-        {
-            save.Destination = "";
-            save.Destination = "";
-            save.Extension = "";
-            save.FileSource = "";
-            save.FileTarget = "";
-            save.Name = "";
-            save.Type = "";
+        {           
         }
 
         public void createSave()
