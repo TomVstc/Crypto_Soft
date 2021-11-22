@@ -8,12 +8,15 @@ namespace Livrable
     {
         private Model model;
         private ViewSave viewSave;
+        private ViewDailyLog viewDailyLog;
+
         private int numberSave { get; set; }
         public Controller()
         {
             // Model and View instantiate in the controller
             model = new Model();
             viewSave = new ViewSave();
+            viewDailyLog = new ViewDailyLog();
             numberSave = 0;
             viewSave.setController(this);
 
@@ -42,6 +45,8 @@ namespace Livrable
         public void createSave()
         {
             model.createSave();
+            viewDailyLog.getValuesSave(viewSave);
+            model.createDailyLog();
         }
     }
 }

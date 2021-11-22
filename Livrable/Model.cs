@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Diagnostics;
+using System.Threading;
 
 namespace Livrable
 {
@@ -9,12 +11,18 @@ namespace Livrable
     {
         // All attributes
         private ViewSave save;
+        private ViewDailyLog viewDailyLog;
 
         // Creation of set and get
         public ViewSave Save
         {
             get { return save; }
             set { save = value;  }
+        }
+        public ViewDailyLog ViewDailyLog
+        {
+            get { return viewDailyLog; }
+            set { viewDailyLog = value; }
         }
 
         // Constructor
@@ -33,8 +41,10 @@ namespace Livrable
                     string fileTarget = save.FileTarget;
                     string path = fileTarget + @"\" + fileName;
 
+                    Stopwatch sw = Stopwatch.StartNew();
                     System.IO.File.Copy(fileSource, path, true);
-
+                    sw.Stop();
+                    save.TimeSave = sw.Elapsed.TotalMilliseconds.ToString();
                     Console.WriteLine("File Create\n");
                 }
                 if(Save.Destination == "Directory")
@@ -63,6 +73,11 @@ namespace Livrable
             {
                 Console.WriteLine("\nDifferential no increment");
             }
+
+        }
+        
+        public void createDailyLog()
+        {
 
         }
 

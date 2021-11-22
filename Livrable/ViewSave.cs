@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Linq;
+using System.Diagnostics;
+using System.Threading;
 
 namespace Livrable
 {
@@ -16,6 +18,7 @@ namespace Livrable
         private string type;
         private string destination;
         private string extention;
+        private string timeSave;
 
         private IController controller;
         #endregion
@@ -57,6 +60,12 @@ namespace Livrable
             get { return extention; }
             set { extention = value; }
         }
+        public string TimeSave
+        {
+            get { return timeSave; }
+            set { timeSave = value; }
+        }
+
         #endregion
 
         // Constructor call at the creation
@@ -67,7 +76,8 @@ namespace Livrable
             Name = "";
             FileSource = "";
             FileTarget = "";
-            Type = "";            
+            Type = "";
+            timeSave = "";
         }
 
         // Link ViewSave to controller
