@@ -8,6 +8,7 @@ namespace Livrable
 {
     class ViewSave
     {
+        #region ALL ATTRIBUTE
         // All attributes of a save
         private string name;
         private string fileSource;
@@ -17,7 +18,9 @@ namespace Livrable
         private string extention;
 
         private IController controller;
+        #endregion
 
+        #region SET/GET
         // Creation of set and get
         public string Name
         {
@@ -54,7 +57,7 @@ namespace Livrable
             get { return extention; }
             set { extention = value; }
         }
-
+        #endregion
 
         // Constructor call at the creation
         public ViewSave()
@@ -110,6 +113,7 @@ namespace Livrable
             }
         }
 
+        #region FUNCTION TO RECUP AND CHECK
         // RECUP AND CHECK THE SOURCE DIRECTORY
         public void getSourcePathDirectory()
         {
@@ -244,6 +248,6 @@ namespace Livrable
                 return false;
             }
         }
-
+        #endregion
     }
 }
