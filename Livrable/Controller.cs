@@ -32,7 +32,7 @@ namespace Livrable
             }
             else
             {
-                Console.WriteLine("\nYou did 5 saves.");
+                Console.WriteLine("\nYou did 5 saves. You can't do more");
             }
 
         }
