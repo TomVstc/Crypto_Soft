@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
+using Newtonsoft.Json;
 
 namespace Livrable
 {
@@ -76,9 +77,27 @@ namespace Livrable
 
         }
         
-        public void createDailyLog()
+        public void createDailyLog(ViewDailyLog viewDailyLog)
         {
+            test fichier = new test();
+            fichier.Name = viewDailyLog.Name;
+            fichier.Time = viewDailyLog.Time;
+            fichier.FileSize = viewDailyLog.FileSize;
+            fichier.FileSource = viewDailyLog.FileSource;
+            fichier.FileTarget = viewDailyLog.FileTarget;
+            fichier.FileTransfertTime = viewDailyLog.FileTransfertTime;
+            string jsonSerializedObj = JsonConvert.SerializeObject(fichier);
+            File.WriteAllText(@"D:\Code\dailyLog\" + fichier.Name + ".son", jsonSerializedObj);
+        }
 
+        public class test
+        {
+            public int FileSize;
+            public string FileTransfertTime;
+            public DateTime Time;
+            public string Name;
+            public string FileSource;
+            public string FileTarget;
         }
 
 

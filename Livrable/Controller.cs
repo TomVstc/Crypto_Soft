@@ -19,6 +19,7 @@ namespace Livrable
             viewDailyLog = new ViewDailyLog();
             numberSave = 0;
             viewSave.setController(this);
+            viewDailyLog.setController(this);
 
             // Call the function to start a save
             viewSave.startSave();
@@ -30,6 +31,7 @@ namespace Livrable
             {
                 model.Save = viewSave;
                 createSave();
+                createDailyLog();
                 numberSave++;
                 viewSave.startSave();
             }
@@ -45,8 +47,11 @@ namespace Livrable
         public void createSave()
         {
             model.createSave();
+        }
+        public void createDailyLog()
+        {
             viewDailyLog.getValuesSave(viewSave);
-            model.createDailyLog();
+            model.createDailyLog(viewDailyLog);
         }
     }
 }
