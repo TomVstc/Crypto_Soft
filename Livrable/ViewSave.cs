@@ -114,7 +114,7 @@ namespace Livrable
         }
 
         #region FUNCTION TO RECUP AND CHECK
-        // RECUP AND CHECK THE SOURCE DIRECTORY
+        // RECUP AND CHECK  THE SOURCE DIRECTORY
         public void getSourcePathDirectory()
         {
             bool isSourcePathValid = false;
