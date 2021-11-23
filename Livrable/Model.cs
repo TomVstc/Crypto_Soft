@@ -42,6 +42,7 @@ namespace Livrable
         {           
         }
 
+        // Create Save
         public void createSave()
         {
             if(Save.Type == "Full")
@@ -90,6 +91,7 @@ namespace Livrable
 
         }
         
+        // Create DailyLog
         public void createDailyLog(ViewDailyLog viewDailyLog)
         {
             DailyLog fichier = new DailyLog();
