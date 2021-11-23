@@ -46,14 +46,23 @@ namespace Livrable
 
         public void getValuesSave( ViewSave viewSave )
         {
-            Name = viewSave.Name;
             Extension = viewSave.Extension;
+            Name = viewSave.Name;
             FileSource = viewSave.FileSource;
             FileTarget = viewSave.FileTarget;
             FileTransfertTime = viewSave.TimeSave;
             Destination = viewSave.Destination;
-            getFileSize();
-            getTime();
+            if(Destination == "File")
+            {
+                getFileSize();
+                getTime();
+                Name = Name + "." + Extension;
+            }
+            else
+            {
+                getDirectorySize();
+                getDirectoryTime();
+            }
         }
 
         public void getFileSize()
@@ -61,15 +70,21 @@ namespace Livrable
             FileInfo fileinfo = new FileInfo(FileTarget + @"\" + Name + "." + Extension);
             FileSize = (int)fileinfo.Length;
         }
+
+        public void getDirectorySize()
+        {
+            DirectoryInfo directoryInfo = new DirectoryInfo(FileTarget + @"\" + Name);
+            long totalSize = directoryInfo.EnumerateFiles().Sum(file => file.Length);
+            FileSize = (int)totalSize;
+        }
         public void getTime()
         {
-            if(Destination == "File")
-            {
-                Time = File.GetCreationTime(FileTarget + @"\" + Name + "." + Extension);
-            }
+             Time = File.GetCreationTime(FileTarget + @"\" + Name + "." + Extension);
+            
         }
-
-
-
+        public void getDirectoryTime()
+        {
+            Time = Directory.GetCreationTime(FileTarget + @"\" + Name);
+        }
     }
 }
