@@ -8,14 +8,18 @@ namespace Livrable
     {
         private Model model;
         private ViewSave viewSave;
+        private ViewDailyLog viewDailyLog;
+
         private int numberSave { get; set; }
         public Controller()
         {
             // Model and View instantiate in the controller
             model = new Model();
             viewSave = new ViewSave();
+            viewDailyLog = new ViewDailyLog();
             numberSave = 0;
             viewSave.setController(this);
+            viewDailyLog.setController(this);
 
             // Call the function to start a save
             viewSave.startSave();
@@ -27,6 +31,7 @@ namespace Livrable
             {
                 model.Save = viewSave;
                 createSave();
+                createDailyLog();
                 numberSave++;
                 viewSave.startSave();
             }
@@ -42,6 +47,11 @@ namespace Livrable
         public void createSave()
         {
             model.createSave();
+        }
+        public void createDailyLog()
+        {
+            viewDailyLog.getValuesSave(viewSave);
+            model.createDailyLog(viewDailyLog);
         }
     }
 }

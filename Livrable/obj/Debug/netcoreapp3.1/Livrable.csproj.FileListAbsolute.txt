@@ -12,3 +12,5 @@ D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable\obj\Debug
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable\obj\Debug\netcoreapp3.1\Livrable.dll
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable\obj\Debug\netcoreapp3.1\Livrable.pdb
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable\obj\Debug\netcoreapp3.1\Livrable.genruntimeconfig.cache
+D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable\obj\Debug\netcoreapp3.1\Livrable.csproj.CopyComplete
