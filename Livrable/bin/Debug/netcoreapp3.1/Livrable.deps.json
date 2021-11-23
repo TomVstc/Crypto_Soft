@@ -12,6 +12,14 @@
         },
         "runtime": {
           "Livrable.dll": {}
+        },
+        "resources": {
+          "en-US/Livrable.resources.dll": {
+            "locale": "en-US"
+          },
+          "fr-FR/Livrable.resources.dll": {
+            "locale": "fr-FR"
+          }
         }
       },
       "Newtonsoft.Json/13.0.1": {

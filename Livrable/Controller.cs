@@ -1,16 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Resources;
+using System.Reflection;
+using System.Threading;
+using System.Globalization;
 
 namespace Livrable
 {
     class Controller : IController
     {
+        ResourceManager rm = new ResourceManager("Livrable.Langage.Strings",
+        Assembly.GetExecutingAssembly());
+
         private Model model;
         private ViewSave viewSave;
         private ViewDailyLog viewDailyLog;
-
         private int numberSave { get; set; }
+        public string Langage { get; set; }
         public Controller()
         {
             // Model and View instantiate in the controller

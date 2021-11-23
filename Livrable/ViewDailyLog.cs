@@ -4,20 +4,27 @@ using System.Text;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
+using System.Resources;
+using System.Reflection;
+using System.Threading;
+using System.Globalization;
 
 namespace Livrable
 {
     class ViewDailyLog : ViewSave
     {
+        ResourceManager rm = new ResourceManager("Livrable.Langage.Strings",
+        Assembly.GetExecutingAssembly());
+
         #region ALL ATTRIBUTE
         // All attribute of a Daily Log
-        private int fileSize;
+        private long fileSize;
         private string fileTransfertTime;
         private DateTime time;
         #endregion
 
         #region SET/GET
-        public int FileSize
+        public long FileSize
         {
             get { return fileSize; }
             set { fileSize = value; }
@@ -64,13 +71,11 @@ namespace Livrable
                 getDirectoryTime();
             }
         }
-
         public void getFileSize()
         {
             FileInfo fileinfo = new FileInfo(FileTarget + @"\" + Name + "." + Extension);
-            FileSize = (int)fileinfo.Length;
+            FileSize = fileinfo.Length;
         }
-
         public void getDirectorySize()
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(FileTarget + @"\" + Name);

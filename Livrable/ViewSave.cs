@@ -4,12 +4,18 @@ using System.Text;
 using System.IO;
 using System.Linq;
 using System.Diagnostics;
+using System.Resources;
+using System.Reflection;
 using System.Threading;
+using System.Globalization;
 
 namespace Livrable
 {
     class ViewSave
     {
+        ResourceManager rm = new ResourceManager("Livrable.Langage.Strings",
+        Assembly.GetExecutingAssembly());
+
         #region ALL ATTRIBUTE
         // All attributes of a save
         private string name;
@@ -84,7 +90,15 @@ namespace Livrable
         {
             bool isSaveValid = false;
 
-            Console.WriteLine("\nEnter save information : \n");
+            if(Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+            {
+                Console.WriteLine("\n" + (rm.GetString("informationSaveEN")) +"\n");
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "fr-FR")
+            {
+                Console.WriteLine("\n" + (rm.GetString("informationSaveFR")) + "\n");
+            }
+            
 
             getDestination();
 
@@ -124,7 +138,14 @@ namespace Livrable
             bool isSourcePathValid = false;
             while (isSourcePathValid != true)
             {
-                Console.WriteLine("Enter the directory that you want to copy :");
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("directoryToCopyEN")) + "\n");
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "fr-FR")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("directoryToCopyFR")) + "\n");
+                }
                 fileSource = Console.ReadLine();
                 isSourcePathValid = checkSourcePathDirectory(fileSource);
             }
@@ -141,7 +162,14 @@ namespace Livrable
             bool isDestinationValid = false;
             while (isDestinationValid != true)
             {
-                Console.WriteLine("Copy File : File // Copy Directory : Directory");
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("copyDestinationEN")) + "\n");
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "fr-FR")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("copyDestinationFR")) + "\n");
+                }
                 destination = Console.ReadLine();
                 isDestinationValid = checkDestination(destination);
             }
@@ -164,7 +192,14 @@ namespace Livrable
             bool isSourcePathValid = false;
             while (isSourcePathValid != true)
             {
-                Console.WriteLine("Enter the source path where your file is : ");
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("getSourcePathFileEN")) + "\n");
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "fr-FR")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("getSourcePathFileFR")) + "\n");
+                }
                 FileSource = Console.ReadLine();
                 isSourcePathValid = checkSourcePathFile(FileSource);
             }
@@ -181,7 +216,14 @@ namespace Livrable
             bool isSourcePathValid = false;
             while (isSourcePathValid != true)
             {
-                Console.WriteLine("Enter the destination path where your will put the file : ");
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("getDestinationPathDirectoryEN")) + "\n");
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "fr-FR")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("getDestinationPathDirectoryFR")) + "\n");
+                }
                 FileTarget = Console.ReadLine();
                 isSourcePathValid = checkDestinationPathDirectory(FileTarget);
             }
@@ -216,7 +258,14 @@ namespace Livrable
             bool isNameValid = false;
             while (isNameValid != true)
             {
-                Console.WriteLine("Enter the name of your save : ");
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("getNameEN")) + "\n");
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "fr-FR")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("getNameFR")) + "\n");
+                }
                 Name = Console.ReadLine();
                 isNameValid = checkName(Name);
             }
@@ -236,7 +285,14 @@ namespace Livrable
             bool isTypeValid = false;
             while (isTypeValid != true)
             {
-                Console.WriteLine("Enter the type (Full / Differential)");
+                if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("getTypeEN")) + "\n");
+                }
+                else if (Thread.CurrentThread.CurrentUICulture.Name == "fr-FR")
+                {
+                    Console.WriteLine("\n" + (rm.GetString("getTypeFR")) + "\n");
+                }
                 type = Console.ReadLine();
                 isTypeValid = checkType(type);
             }
