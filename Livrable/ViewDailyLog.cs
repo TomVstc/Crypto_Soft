@@ -50,8 +50,8 @@ namespace Livrable
             Name = viewSave.Name;
             FileSource = viewSave.FileSource;
             FileTarget = viewSave.FileTarget;
-            FileTransfertTime = viewSave.TimeSave;
             Destination = viewSave.Destination;
+            //FileTransfertTime = viewSave.FileTransfertTime;
             if(Destination == "File")
             {
                 getFileSize();

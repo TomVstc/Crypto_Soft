@@ -11,9 +11,10 @@ namespace Livrable
 {
     class Model
     {
+        #region ATTRIBUT
         // All attributes
-        private ViewSave save;
-        private ViewDailyLog viewDailyLog;
+        //private ViewSave save;
+        //private ViewDailyLog viewDailyLog;
         public class DailyLog
         {
             public int FileSize;
@@ -23,18 +24,66 @@ namespace Livrable
             public string FileSource;
             public string FileTarget;
         }
+        private string fileName;
+        private string fileSource;
+        private string fileTarget;
+        private string type;
+        private string destination;
+        private string extension;
+        private string fileTransfertTime;
+        private int fileSize;
+        #endregion
 
-
-        // Creation of set and get
-        public ViewSave Save
+        //Creation of set and get
+        //public ViewSave Save
+        //{
+        //    get { return save; }
+        //    set { save = value;  }
+        //}
+        //public ViewDailyLog ViewDailyLog
+        //{
+        //    get { return viewDailyLog; }
+        //    set { viewDailyLog = value; }
+        //}
+        public string FileName
         {
-            get { return save; }
-            set { save = value;  }
+            get { return fileName; }
+            set { fileName = value; }
         }
-        public ViewDailyLog ViewDailyLog
+        public string FileSource
         {
-            get { return viewDailyLog; }
-            set { viewDailyLog = value; }
+            get { return fileSource; }
+            set { fileSource = value; }
+        }
+        public string FileTarget
+        {
+            get { return fileTarget; }
+            set { fileTarget = value; }
+        }
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+        public string Destination
+        {
+            get { return destination; }
+            set { destination = value; }
+        }
+        public string Extension
+        {
+            get { return extension; }
+            set { extension = value; }
+        }
+        public string FileTransfertTime
+        {
+            get { return fileTransfertTime; }
+            set { fileTransfertTime = value; }
+        }
+        public int FileSize
+        {
+            get { return fileSize; }
+            set { fileSize = value; }
         }
 
         // Constructor
@@ -45,26 +94,26 @@ namespace Livrable
         // Create Save
         public void createSave()
         {
-            if(Save.Type == "Full")
+            if(Type == "Full")
             {
-                if(Save.Destination == "File")
+                if(Destination == "File")
                 {
-                    string fileName = save.Name + "." + save.Extension;
-                    string fileSource = save.FileSource;
-                    string fileTarget = save.FileTarget;
+                    string fileName = FileName + "." + Extension;
+                    string fileSource = FileSource;
+                    string fileTarget = FileTarget;
                     string path = fileTarget + @"\" + fileName;
 
                     Stopwatch sw = Stopwatch.StartNew();
                     System.IO.File.Copy(fileSource, path, true);
                     sw.Stop();
-                    save.TimeSave = sw.Elapsed.TotalMilliseconds.ToString();
+                    FileTransfertTime = sw.Elapsed.TotalMilliseconds.ToString();
                     Console.WriteLine("File Create\n");
                 }
-                if(Save.Destination == "Directory")
+                if(Destination == "Directory")
                 {
-                    string fileName = save.Name;
-                    string fileSource = save.FileSource;
-                    string fileTarget = save.FileTarget + @"\" + save.Name;
+                    string fileName = FileName;
+                    string fileSource = FileSource;
+                    string fileTarget = FileTarget + @"\" + FileName;
 
                     string[] files = System.IO.Directory.GetFiles(fileSource);
                     string destFile = System.IO.Path.Combine(fileTarget, fileName);
@@ -79,12 +128,11 @@ namespace Livrable
                         System.IO.File.Copy(s, destFile, true);
                     }
                     sw.Stop();
-                    save.TimeSave = sw.Elapsed.TotalMilliseconds.ToString();
+                    FileTransfertTime = sw.Elapsed.TotalMilliseconds.ToString();
                     Console.WriteLine("\nDirectory Create Create\n");
-
                 }
             }
-            if (Save.Type == "Differential")
+            if (Type == "Differential")
             {
                 Console.WriteLine("\nDifferential no increment");
             }
@@ -100,11 +148,11 @@ namespace Livrable
             fichier.FileSize = viewDailyLog.FileSize;
             fichier.FileSource = viewDailyLog.FileSource;
             fichier.FileTarget = viewDailyLog.FileTarget;
-            fichier.FileTransfertTime = viewDailyLog.FileTransfertTime;
+            fichier.FileTransfertTime = FileTransfertTime;
 
   
             string jsonSerializedObj = JsonConvert.SerializeObject(fichier, Formatting.Indented);
-            File.AppendAllText(@"D:\Code\dailyLog\dailyLog.son", jsonSerializedObj);
+            File.AppendAllText(@"D:\Code\dailyLog\dailyLog2.son", jsonSerializedObj);
         }
     }
 }

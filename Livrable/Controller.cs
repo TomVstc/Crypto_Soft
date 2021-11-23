@@ -29,7 +29,19 @@ namespace Livrable
         {
             if(numberSave < 5)
             {
-                model.Save = viewSave;
+                model.FileName = viewSave.Name;
+                model.FileSource = viewSave.FileSource;
+                model.FileTarget = viewSave.FileTarget;
+                model.Type = viewSave.Type;
+                model.Destination = viewSave.Destination;
+                model.Extension = viewSave.Extension;
+                model.FileTransfertTime = viewDailyLog.FileTransfertTime;
+                model.FileSize = viewDailyLog.FileSize;
+                viewDailyLog.Name = model.FileName;
+                viewDailyLog.FileSource = model.FileSource;
+                viewDailyLog.FileTarget = model.FileTarget;
+                viewDailyLog.Destination = model.Destination;
+                viewDailyLog.Extension = model.Extension;
                 createSave();
                 createDailyLog();
                 numberSave++;
@@ -50,7 +62,7 @@ namespace Livrable
         }
         public void createDailyLog()
         {
-            viewDailyLog.getValuesSave(viewSave);
+            viewDailyLog.getValuesSave(viewDailyLog);
             model.createDailyLog(viewDailyLog);
         }
     }

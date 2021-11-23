@@ -18,7 +18,6 @@ namespace Livrable
         private string type;
         private string destination;
         private string extention;
-        private string timeSave;
 
         private IController controller;
         #endregion
@@ -60,11 +59,6 @@ namespace Livrable
             get { return extention; }
             set { extention = value; }
         }
-        public string TimeSave
-        {
-            get { return timeSave; }
-            set { timeSave = value; }
-        }
 
         #endregion
 
@@ -77,7 +71,6 @@ namespace Livrable
             FileSource = "";
             FileTarget = "";
             Type = "";
-            timeSave = "";
         }
 
         // Link ViewSave to controller
@@ -114,7 +107,6 @@ namespace Livrable
                 while (isSaveValid != true)
                 {
                     getName();
-                    
                     getSourcePathDirectory();
                     getDestinationPathDirectory();
                     getType();
