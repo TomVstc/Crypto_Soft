@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "diY/EqsmJ8xt7lh9jatpwgvKRbfspqjO99bCaLdbFvikJMFgtb4YFcD4Jt8/2x6STC0qXrb+X0MER1jllOGtLg==",
+  "dgSpecHash": "xwDX+zwvr3oyFaNZwiA5mNnTzkE6quy8InRcxuyMVnNyZQyGq6cUb4OY9uoEHmm8jF8F0UCd2tLjm23h+R29WQ==",
   "success": true,
   "projectFilePath": "D:\\Code\\Projet_Programmation_Systeme\\Programmation_Systeme_G1\\Livrable\\Livrable.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\tomv5\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
