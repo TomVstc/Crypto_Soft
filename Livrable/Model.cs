@@ -21,8 +21,6 @@ namespace Livrable
 
         #region ATTRIBUT
         // All attributes
-        //private ViewSave save;
-        //private ViewDailyLog viewDailyLog;
         public class DailyLog
         {
             public long FileSize;
@@ -31,6 +29,18 @@ namespace Livrable
             public string Name;
             public string FileSource;
             public string FileTarget;
+        }
+        public class StateLog
+        {
+            public string name;
+            public string sourcePath;
+            public string targetPath;
+            public DateTime timestamp;
+            public string backupState;
+            public int totalFileToCopy;
+            public long totalFileSize;
+            public int nbFileLeftToDo;
+            public long fileSizeLeftToDo;
         }
 
         private string fileName;
@@ -41,6 +51,9 @@ namespace Livrable
         private string extension;
         private string fileTransfertTime;
         private long fileSize;
+        private DateTime time;
+        private string backupState;
+        private int totalFileToCopy;
         #endregion
 
         public bool controlSave { get; set; }
@@ -87,6 +100,23 @@ namespace Livrable
             get { return fileSize; }
             set { fileSize = value; }
         }
+        public DateTime Time
+        {
+            get { return time; }
+            set { time = value; }
+        }
+        public string BackupState
+        {
+            get { return backupState; }
+            set { backupState = value; }
+        }
+        public int TotalFileToCopy
+        {
+            get { return totalFileToCopy; }
+            set { totalFileToCopy = value; }
+        }
+
+
         #endregion
 
         // Constructor
@@ -97,7 +127,8 @@ namespace Livrable
         // Create Save
         public async void createSave()
         {
-            //checkState();
+            BackupState = "ACTIF";
+
             if(Type == "Full")
             {
                 if(Destination == "File")
@@ -109,10 +140,18 @@ namespace Livrable
                     string path = fileTarget + @"\" + fileName;
 
                     DateTime Start = DateTime.Now;
+                    Time = Start;
+                    TotalFileToCopy = 1;
+
                     System.IO.File.Copy(fileSource, path, true);
                     DateTime Stop = DateTime.Now;
                     FileTransfertTime = (Stop - Start).ToString();
+
                     controlSave = System.IO.File.Exists(path);
+
+                    // Recup File Size
+                    FileInfo fileinfo = new FileInfo(FileTarget + @"\" + fileName);
+                    FileSize = fileinfo.Length;
 
                     if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
                     {
@@ -129,18 +168,26 @@ namespace Livrable
                     string fileSource = FileSource;
                     string fileTarget = FileTarget + @"\" + FileName;
 
-                    string[] files = System.IO.Directory.GetFiles(fileSource);
-                    string destFile = System.IO.Path.Combine(fileTarget, fileName);
+                    DirectoryInfo dir = new DirectoryInfo(fileSource);
+                    DirectoryInfo[] dirs = dir.GetDirectories();
+                    // If destination doesn't exist => create
+                    Directory.CreateDirectory(fileTarget);
+
+                    FileInfo[] files = dir.GetFiles();
+                    //string[] files = System.IO.Directory.GetFiles(fileSource);
+                    //string destFile = System.IO.Path.Combine(fileTarget, fileName);
 
                     DateTime Start = DateTime.Now;
-                    // Copy the files and overwrite destination files if they already exist.
-                    foreach (string s in files)
+                    Time = Start;
+
+                    foreach(FileInfo file in files)
                     {
-                        // Use static Path methods to extract only the file name from the path.
-                        fileName = System.IO.Path.GetFileName(s);
-                        destFile = System.IO.Path.Combine(fileTarget, fileName);
-                        System.IO.File.Copy(s, destFile, true);
+                        FileSize += file.Length;
+                        file.CopyTo(fileTarget + @"\" + file.Name, false);
+                        TotalFileToCopy++;
                     }
+
+   
                     DateTime Stop = DateTime.Now;
                     FileTransfertTime = (Stop - Start).ToString();
 
@@ -153,6 +200,14 @@ namespace Livrable
                         Console.WriteLine("\n" + (rm.GetString("directoryCreateFR")) + "\n");
                     }
                 }
+
+                // Create StateLog when a Save = Actif
+                createStateLog();
+                createDailyLog();
+                BackupState = "NON ACTIF";
+                // Update StateLog
+                createStateLog();
+
             }
             if (Type == "Differential")
             {
@@ -162,23 +217,58 @@ namespace Livrable
         }
         
         // Create DailyLog
-        public void createDailyLog(ViewDailyLog viewDailyLog)
+        public void createDailyLog()
         {
             DailyLog fichier = new DailyLog();
-            fichier.Name = viewDailyLog.Name;
-            fichier.Time = viewDailyLog.Time;
-            fichier.FileSize = viewDailyLog.FileSize;
-            fichier.FileSource = viewDailyLog.FileSource;
-            fichier.FileTarget = viewDailyLog.FileTarget;
+            fichier.Name = FileName;
+            fichier.Time = Time;
+            fichier.FileSize = FileSize;
+            fichier.FileSource = FileSource;
+            fichier.FileTarget = FileTarget;
             fichier.FileTransfertTime = FileTransfertTime;
 
             string jsonSerializedObj = JsonConvert.SerializeObject(fichier, Formatting.Indented);
-            File.AppendAllText(@"D:\Code\dailyLog\dailyLog2.son", jsonSerializedObj);
+           
+            Directory.CreateDirectory(@"D:\Code\dailyLog");
+            File.AppendAllText(@"D:\Code\dailyLog\dailyLog2.json", jsonSerializedObj);
+            
         }
 
-        static void checkState() { 
+        public void createStateLog()
+        {
+            StateLog stateLog = new StateLog();
+            if (BackupState == "ACTIF")
+            {
+                stateLog.name = FileName;
+                stateLog.sourcePath = FileSource;
+                stateLog.targetPath = FileTarget;
+                stateLog.timestamp = Time;
+                stateLog.backupState = BackupState;
+                stateLog.totalFileToCopy = TotalFileToCopy;
+                stateLog.totalFileSize = FileSize;
+                stateLog.nbFileLeftToDo = TotalFileToCopy;
+                stateLog.fileSizeLeftToDo = FileSize;
 
+                string jsonSerializedObj = JsonConvert.SerializeObject(stateLog, Formatting.Indented);
+                Directory.CreateDirectory(@"D:\Code\stateLog");
+                File.AppendAllText(@"D:\Code\stateLog\stateLog1.json", jsonSerializedObj);
+            }
+            else if(BackupState =="NON ACTIF")
+            {
+                stateLog.name = FileName;
+                stateLog.sourcePath = "";
+                stateLog.targetPath = "";
+                stateLog.timestamp = default(DateTime);
+                stateLog.backupState = BackupState;
+                stateLog.totalFileToCopy = 0;
+                stateLog.totalFileSize = 0;
+                stateLog.nbFileLeftToDo = 0;
+                stateLog.fileSizeLeftToDo = 0;
+
+                string jsonSerializedObj = JsonConvert.SerializeObject(stateLog, Formatting.Indented);
+                Directory.CreateDirectory(@"D:\Code\stateLog");
+                File.AppendAllText(@"D:\Code\stateLog\stateLog1.json", jsonSerializedObj);
+            }
         }
-        
     }
 }

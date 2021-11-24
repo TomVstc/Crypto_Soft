@@ -19,10 +19,12 @@ namespace Livrable
             string value = Console.ReadLine();
             if (value == "1")
             {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("fr-FR");
                 Controller controller = new Controller();
             }
             else if (value == "2")
             {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("en-US");
                 Controller controller = new Controller();
             }
             else

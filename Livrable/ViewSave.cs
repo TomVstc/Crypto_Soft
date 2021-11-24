@@ -98,7 +98,6 @@ namespace Livrable
             {
                 Console.WriteLine("\n" + (rm.GetString("informationSaveFR")) + "\n");
             }
-            
 
             getDestination();
 
