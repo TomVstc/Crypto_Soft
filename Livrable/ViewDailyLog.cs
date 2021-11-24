@@ -51,45 +51,5 @@ namespace Livrable
             Time = default;
         }
 
-        public void getValuesSave( ViewSave viewSave )
-        {
-            Extension = viewSave.Extension;
-            Name = viewSave.Name;
-            FileSource = viewSave.FileSource;
-            FileTarget = viewSave.FileTarget;
-            Destination = viewSave.Destination;
-            //FileTransfertTime = viewSave.FileTransfertTime;
-            if(Destination == "File")
-            {
-                getFileSize();
-                getTime();
-                Name = Name + "." + Extension;
-            }
-            else
-            {
-                getDirectorySize();
-                getDirectoryTime();
-            }
-        }
-        public void getFileSize()
-        {
-            FileInfo fileinfo = new FileInfo(FileTarget + @"\" + Name + "." + Extension);
-            FileSize = fileinfo.Length;
-        }
-        public void getDirectorySize()
-        {
-            DirectoryInfo directoryInfo = new DirectoryInfo(FileTarget + @"\" + Name);
-            long totalSize = directoryInfo.EnumerateFiles().Sum(file => file.Length);
-            FileSize = (int)totalSize;
-        }
-        public void getTime()
-        {
-             Time = File.GetCreationTime(FileTarget + @"\" + Name + "." + Extension);
-            
-        }
-        public void getDirectoryTime()
-        {
-            Time = Directory.GetCreationTime(FileTarget + @"\" + Name);
-        }
     }
 }
