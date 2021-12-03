@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Livrable_AppliGraphique"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:language="clr-namespace:Livrable_AppliGraphique.Properties.Langs"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
 
+
+    
+    <Grid>
+        <StackPanel>
+            <Button
+                Grid.Column="1"
+                Grid.Row="1"
+                Height="40"
+                Width="40"
+                BorderThickness="0" HorizontalAlignment="Right" Margin="0,20,20,0" Click="Button_Click"
+                >
+                <!--<Button.Background>
+                    <ImageBrush ImageSource="Image/btn_Off.png"></ImageBrush>
+                </Button.Background>-->
+            </Button>
+            <Label Content="{x:Static language:Lang.hello}" FontSize="40px"></Label>
+        </StackPanel>
     </Grid>
 </Window>
