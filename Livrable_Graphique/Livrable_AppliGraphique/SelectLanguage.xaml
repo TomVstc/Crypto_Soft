@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         Title="SelectLanguage" Height="450" Width="800" Visibility="Visible"
         xmlns:language="clr-namespace:Livrable_AppliGraphique.Properties.Langs"
-        Background="#65DCE0">
+        Background="#65DCE0"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
 
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="229">

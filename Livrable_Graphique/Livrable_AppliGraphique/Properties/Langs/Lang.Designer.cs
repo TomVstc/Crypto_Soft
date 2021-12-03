@@ -113,5 +113,14 @@ namespace Livrable_AppliGraphique.Properties.Langs {
                 return ResourceManager.GetString("hello", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Welcome on EasySave Application.
+        /// </summary>
+        public static string welcome {
+            get {
+                return ResourceManager.GetString("welcome", resourceCulture);
+            }
+        }
     }
 }

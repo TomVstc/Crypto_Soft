@@ -22,8 +22,10 @@ namespace Livrable_AppliGraphique
     /// </summary>
     public partial class SelectLanguage : Window
     {
-        public SelectLanguage()
+        public Controller Controller { get; set; }
+        public SelectLanguage(Controller controller)
         {
+            this.Controller = controller;
             InitializeComponent();
         }
 

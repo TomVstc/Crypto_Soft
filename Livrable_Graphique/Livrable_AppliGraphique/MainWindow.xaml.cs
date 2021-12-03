@@ -20,14 +20,25 @@ namespace Livrable_AppliGraphique
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Controller Controller { get; set; }
+
         public MainWindow()
         {
+            Controller controller = new Controller();
+            this.Controller = controller;
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void Button_Setting_Click(object sender, RoutedEventArgs e)
+        {
+            SelectLanguage objSelectLanguage = new SelectLanguage(Controller);
+            objSelectLanguage.Show();
+            this.Close();
         }
     }
 }

@@ -135,4 +135,7 @@
   <data name="hello" xml:space="preserve">
     <value>Bonjour</value>
   </data>
+  <data name="welcome" xml:space="preserve">
+    <value>Bienvenu sur l'application EasySave</value>
+  </data>
 </root>
