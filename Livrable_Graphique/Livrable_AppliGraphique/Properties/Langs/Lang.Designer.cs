@@ -61,6 +61,24 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Directory Save.
+        /// </summary>
+        public static string Button_Directory_Save {
+            get {
+                return ResourceManager.GetString("Button_Directory_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à File Save.
+        /// </summary>
+        public static string Button_File_Save {
+            get {
+                return ResourceManager.GetString("Button_File_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Home.
         /// </summary>
         public static string button_home {
@@ -84,6 +102,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         public static string chooseLanguage {
             get {
                 return ResourceManager.GetString("chooseLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose the save type.
+        /// </summary>
+        public static string chooseSave {
+            get {
+                return ResourceManager.GetString("chooseSave", resourceCulture);
             }
         }
         

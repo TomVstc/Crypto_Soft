@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\App.xaml
-4-1577110365
+4-1882371569
 
-11348289274
+11-1954353901
 200-1621603951
-MainWindow.xaml;SaveWindow.xaml;SelectLanguage.xaml;Settings.xaml;
+MainWindow.xaml;Save_Window\SaveWindow.xaml;Setting_Window\SelectLanguage.xaml;Setting_Window\Settings.xaml;
 
 False
 

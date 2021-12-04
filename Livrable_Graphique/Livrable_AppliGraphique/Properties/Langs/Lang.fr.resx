@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Button_Directory_Save" xml:space="preserve">
+    <value>Sauvegarde Dossier</value>
+  </data>
+  <data name="Button_File_Save" xml:space="preserve">
+    <value>Sauvegarde Fichier</value>
+  </data>
   <data name="button_home" xml:space="preserve">
     <value>Accueil</value>
   </data>
@@ -125,6 +131,9 @@
   </data>
   <data name="chooseLanguage" xml:space="preserve">
     <value>Choissiez un langage</value>
+  </data>
+  <data name="chooseSave" xml:space="preserve">
+    <value>Choisir le type de sauvegarde</value>
   </data>
   <data name="confirm" xml:space="preserve">
     <value>Confirmer</value>
