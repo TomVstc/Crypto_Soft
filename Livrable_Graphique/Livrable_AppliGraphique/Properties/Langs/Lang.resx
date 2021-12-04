@@ -135,6 +135,9 @@
   <data name="chooseSave" xml:space="preserve">
     <value>Choose the save type</value>
   </data>
+  <data name="chooseSoftwareSoeciety" xml:space="preserve">
+    <value>Choose your society software</value>
+  </data>
   <data name="confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
@@ -150,11 +153,20 @@
   <data name="hello" xml:space="preserve">
     <value>Hello</value>
   </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="leave" xml:space="preserve">
     <value>Leave</value>
   </data>
+  <data name="NoSoftware" xml:space="preserve">
+    <value>No software society selectionned</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="software_society" xml:space="preserve">
+    <value>Software Society</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>Welcome on EasySave Application</value>

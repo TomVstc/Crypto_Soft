@@ -135,6 +135,9 @@
   <data name="chooseSave" xml:space="preserve">
     <value>Choisir le type de sauvegarde</value>
   </data>
+  <data name="chooseSoftwareSoeciety" xml:space="preserve">
+    <value>Choisissez votre logiciel métier</value>
+  </data>
   <data name="confirm" xml:space="preserve">
     <value>Confirmer</value>
   </data>
@@ -150,11 +153,20 @@
   <data name="hello" xml:space="preserve">
     <value>Bonjour</value>
   </data>
+  <data name="language" xml:space="preserve">
+    <value>Langue</value>
+  </data>
   <data name="leave" xml:space="preserve">
     <value>Quitter</value>
   </data>
+  <data name="NoSoftware" xml:space="preserve">
+    <value>Pas de logiciel métier sélectionner</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Paramètre</value>
+  </data>
+  <data name="software_society" xml:space="preserve">
+    <value>Logiciel métier</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>Bienvenu sur l'application EasySave</value>

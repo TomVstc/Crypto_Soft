@@ -23,18 +23,13 @@
                 Width="40"
                 BorderThickness="0" HorizontalAlignment="Right" Margin="0,20,20,0" Click="Button_Click"
                 >
-                <!--<Button.Background>
-                    -->
-                <!--<ImageBrush ImageSource="Image/btn_Off.png"></ImageBrush>-->
-                <!--
-                </Button.Background>-->
             </Button>
             <Label Content="{x:Static language:Lang.chooseSave}" 
                    FontSize="40px" 
                    Width="731" HorizontalAlignment="Center" HorizontalContentAlignment="Center"
                    />
-            <Button Name ="Button_File_Save" Content="{x:Static language:Lang.Button_File_Save}" Width="150" Height="60" Margin="0,30,0,0"/>
-            <Button Name ="Button_Directory_Save" Content="{x:Static language:Lang.Button_Directory_Save}" Width="150" Height="60" Margin="0,30,0,0"/>
+            <Button Name ="Button_File_Save" Content="{x:Static language:Lang.Button_File_Save}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_File_Save_Click"/>
+            <Button Name ="Button_Directory_Save" Content="{x:Static language:Lang.Button_Directory_Save}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_Directory_Save_Click"/>
         </StackPanel>
 
         <!-- ##################################################### -->

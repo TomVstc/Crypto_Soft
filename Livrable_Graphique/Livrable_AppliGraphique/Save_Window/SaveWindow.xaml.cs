@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Livrable_AppliGraphique.Save_Window;
 
 namespace Livrable_AppliGraphique
 {
@@ -24,17 +25,29 @@ namespace Livrable_AppliGraphique
             InitializeComponent();
         }
 
+        private void Button_File_Save_Click(object sender, RoutedEventArgs e)
+        {
+            FileSaveWindow objFileSaveWindow = new FileSaveWindow(Controller);
+            objFileSaveWindow.Show();
+            this.Close();
+        }
+
+        private void Button_Directory_Save_Click(object sender, RoutedEventArgs e)
+        {
+            DirectorySaveWindow objDirectorySaveWindow = new DirectorySaveWindow(Controller);
+            objDirectorySaveWindow.Show();
+            this.Close();
+        }
+
+        #region Left Menu
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
         }
-
-        #region Left Menu
-
         private void Button_Setting_Click(object sender, RoutedEventArgs e)
         {
-            SelectLanguage objSelectLanguage = new SelectLanguage(Controller);
-            objSelectLanguage.Show();
+            Settings objSettings = new Settings(Controller);
+            objSettings.Show();
             this.Close();
         }
 
@@ -52,5 +65,6 @@ namespace Livrable_AppliGraphique
             this.Close();
         }
         #endregion
+
     }
 }

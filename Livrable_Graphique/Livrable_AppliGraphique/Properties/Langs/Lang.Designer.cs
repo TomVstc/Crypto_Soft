@@ -115,6 +115,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose your society software.
+        /// </summary>
+        public static string chooseSoftwareSoeciety {
+            get {
+                return ResourceManager.GetString("chooseSoftwareSoeciety", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Confirm.
         /// </summary>
         public static string confirm {
@@ -160,6 +169,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Language.
+        /// </summary>
+        public static string language {
+            get {
+                return ResourceManager.GetString("language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Leave.
         /// </summary>
         public static string leave {
@@ -169,11 +187,29 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à No software society selectionned.
+        /// </summary>
+        public static string NoSoftware {
+            get {
+                return ResourceManager.GetString("NoSoftware", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Settings.
         /// </summary>
         public static string settings {
             get {
                 return ResourceManager.GetString("settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Software Society.
+        /// </summary>
+        public static string software_society {
+            get {
+                return ResourceManager.GetString("software_society", resourceCulture);
             }
         }
         

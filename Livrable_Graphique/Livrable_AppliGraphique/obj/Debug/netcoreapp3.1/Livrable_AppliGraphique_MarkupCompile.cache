@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\App.xaml
-4-1882371569
+756392271
 
-9-1936141882
+121416810566
 200-1621603951
-MainWindow.xaml;Save_Window\SaveWindow.xaml;Setting_Window\SelectLanguage.xaml;Setting_Window\Settings.xaml;
+MainWindow.xaml;Save_Window\DirectorySaveWindow.xaml;Save_Window\FileSaveWindow.xaml;Save_Window\SaveWindow.xaml;Setting_Window\SelectLanguage.xaml;Setting_Window\Settings.xaml;Setting_Window\SoftwareSocietyWindow.xaml;
 
 False
 

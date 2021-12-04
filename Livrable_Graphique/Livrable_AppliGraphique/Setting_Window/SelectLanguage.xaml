@@ -11,18 +11,46 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
-
-
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="229">
-
-        <TextBlock TextAlignment="Center" Text="{x:Static language:Lang.chooseLanguage}"></TextBlock>
-        <ComboBox x:Name="cmb" SelectionChanged="ComboBox_SelectionChanged" Margin="0,50,0,0">
-            <ComboBoxItem Content="{x:Static language:Lang.fr}"/>
-            <ComboBoxItem Content="{x:Static language:Lang.en}"/>
-        </ComboBox>
-        <Button x:Name="Button_Valid_Language" Content="{x:Static language:Lang.confirm}" Height="39" Width="192" 
-                Click="Button_Confirm" Margin="0,50,0,0"/>
-        
-    </StackPanel>
     
+    <Grid Background="White">
+        <!-- MAIN Windows -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="229">
+
+            <TextBlock TextAlignment="Center" Text="{x:Static language:Lang.chooseLanguage}"></TextBlock>
+            <ComboBox x:Name="cmb" SelectionChanged="ComboBox_SelectionChanged" Margin="0,50,0,0">
+                <ComboBoxItem Content="{x:Static language:Lang.fr}"/>
+                <ComboBoxItem Content="{x:Static language:Lang.en}"/>
+            </ComboBox>
+            <Button x:Name="Button_Valid_Language" Content="{x:Static language:Lang.confirm}" Height="39" Width="192" 
+                Click="Button_Confirm" Margin="0,50,0,0"/>
+
+        </StackPanel>
+
+        <!-- ##################################################### -->
+        <!-- Menu on the Left -->
+        <StackPanel Margin="0,0,730,0"
+                    Background="Gray">
+            <!-- Home Button -->
+            <Button Name="btn_home" Height="40" Width="40" VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center" Panel.ZIndex="0" 
+                    Click="btn_home_Click"
+                    Content="{x:Static language:Lang.button_home}" Margin="0,30,0,0" >
+            </Button>
+            <!-- Save Button -->
+            <Button Name="btn_save" Height="40" Width="40" VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center" Panel.ZIndex="0" 
+                    Click="btn_save_Click"
+                    Content="{x:Static language:Lang.button_save}" Margin="0,30,0,0">
+            </Button>
+            <!-- Settings Button -->
+            <Button Name="btn_setting" Height="40" Width="40" VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center" Panel.ZIndex="0" 
+                    Click="Button_Setting_Click"
+                    Content="{x:Static language:Lang.settings}" Margin="0,30,0,0">
+            </Button>
+        </StackPanel>
+        <!-- ##################################################### -->
+
+    </Grid>
+
 </Window>

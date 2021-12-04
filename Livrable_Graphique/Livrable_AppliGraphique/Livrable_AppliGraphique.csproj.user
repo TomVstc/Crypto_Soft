@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Save_Window\DirectorySaveWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Save_Window\FileSaveWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Save_Window\SaveWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -14,6 +20,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Setting_Window\Settings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Setting_Window\SoftwareSocietyWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -26,6 +35,12 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Save_Window\DirectorySaveWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Save_Window\FileSaveWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Save_Window\SaveWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -33,6 +48,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Setting_Window\Settings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Setting_Window\SoftwareSocietyWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

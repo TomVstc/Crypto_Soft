@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,38 +8,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Livrable_AppliGraphique
+namespace Livrable_AppliGraphique.Save_Window
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logique d'interaction pour FileSaveWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FileSaveWindow : Window
     {
         public Controller Controller { get; set; }
-
-        public MainWindow()
-        {
-            Controller controller = new Controller();
-            this.Controller = controller;
-            InitializeComponent();
-        }
-
-        public MainWindow(Controller controller)
+        public FileSaveWindow(Controller controller)
         {
             this.Controller = controller;
             InitializeComponent();
         }
 
+        #region Left Menu
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
         }
-
-        #region Left Menu
-
         private void Button_Setting_Click(object sender, RoutedEventArgs e)
         {
             Settings objSettings = new Settings(Controller);
@@ -63,6 +50,5 @@ namespace Livrable_AppliGraphique
             this.Close();
         }
         #endregion
-
     }
 }
