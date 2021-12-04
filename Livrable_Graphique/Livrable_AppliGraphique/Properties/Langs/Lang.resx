@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="button_home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="button_save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="chooseLanguage" xml:space="preserve">
     <value>Choose a langage</value>
   </data>
@@ -134,6 +140,12 @@
   </data>
   <data name="hello" xml:space="preserve">
     <value>Hello</value>
+  </data>
+  <data name="leave" xml:space="preserve">
+    <value>Leave</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>Welcome on EasySave Application</value>

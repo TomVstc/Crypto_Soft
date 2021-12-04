@@ -29,16 +29,12 @@ namespace Livrable_AppliGraphique
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Confirm(object sender, RoutedEventArgs e)
         {
-            //new MainWindow().ShowDialog();
-            //System.Diagnostics.Process.Start(System.Windows.Application.ResourceAssembly.Location);
-            //System.Windows.Application.Current.Shutdown();
+
             var currentExecutablePath = Process.GetCurrentProcess().MainModule.FileName;
             Process.Start(currentExecutablePath);
             System.Windows.Application.Current.Shutdown();
-
-
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

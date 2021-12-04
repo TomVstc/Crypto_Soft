@@ -27,3 +27,7 @@ D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\bin\Debug\netcoreapp3.1\System.Windows.Forms.VisualStudio.15.0.dll
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\Livrable_AppliGraphique.csproj.CopyComplete
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\Livrable_AppliGraphique.csproj.AssemblyReference.cache
+D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\Settings.g.cs
+D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\Settings.baml
+D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\SaveWindow.g.cs
+D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\SaveWindow.baml

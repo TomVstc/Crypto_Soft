@@ -21,7 +21,7 @@
             <ComboBoxItem Content="{x:Static language:Lang.en}"/>
         </ComboBox>
         <Button x:Name="Button_Valid_Language" Content="{x:Static language:Lang.confirm}" Height="39" Width="192" 
-                Click="Button_Click" Margin="0,50,0,0"/>
+                Click="Button_Confirm" Margin="0,50,0,0"/>
         
     </StackPanel>
     

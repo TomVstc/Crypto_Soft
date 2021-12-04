@@ -29,10 +29,18 @@ namespace Livrable_AppliGraphique
             InitializeComponent();
         }
 
+        public MainWindow(Controller controller)
+        {
+            this.Controller = controller;
+            InitializeComponent();
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
         }
+
+        #region Left Menu
 
         private void Button_Setting_Click(object sender, RoutedEventArgs e)
         {
@@ -40,5 +48,21 @@ namespace Livrable_AppliGraphique
             objSelectLanguage.Show();
             this.Close();
         }
+
+        private void btn_save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveWindow objSaveWindow = new SaveWindow(Controller);
+            objSaveWindow.Show();
+            this.Close();
+        }
+
+        private void btn_home_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow objMainWindow = new MainWindow(Controller);
+            objMainWindow.Show();
+            this.Close();
+        }
+        #endregion
+
     }
 }
