@@ -5,8 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Livrable_AppliGraphique"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:language="clr-namespace:Livrable_AppliGraphique.Properties.Langs"
+        Title="Easy Save" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+
+
+    <Grid Background="Black">
+        <!-- MAIN Windows -->
+        <StackPanel Margin="70,0,0,0"
+                    Background="White">
+            <Button
+                Content="{x:Static language:Lang.leave}"
+                Grid.Column="1"               
+                Grid.Row="1"
+                Height="40"
+                Width="40"
+                BorderThickness="0" HorizontalAlignment="Right" Margin="0,20,20,0" Click="Button_Click"
+                >
+                <!--<Button.Background>
+                    -->
+                <!--<ImageBrush ImageSource="Image/btn_Off.png"></ImageBrush>-->
+                <!--
+                </Button.Background>-->
+            </Button>
+            <Label Content="{x:Static language:Lang.welcome}" 
+                   FontSize="40px" 
+                   Width="642" HorizontalAlignment="Center" VerticalAlignment="Stretch"
+                   />
+        </StackPanel>
+
+        <!-- ##################################################### -->
+        <!-- Menu on the Left -->
+        <StackPanel Margin="0,0,730,0"
+                    Background="Gray">
+            <!-- Home Button -->
+            <Button Name="btn_home" Height="40" Width="40" VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center" Panel.ZIndex="0" 
+                    Click="btn_home_Click"
+                    Content="{x:Static language:Lang.button_home}" Margin="0,30,0,0" >
+            </Button>
+            <!-- Save Button -->
+            <Button Name="btn_save" Height="40" Width="40" VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center" Panel.ZIndex="0" 
+                    Click="btn_save_Click"
+                    Content="{x:Static language:Lang.button_save}" Margin="0,30,0,0">
+            </Button>
+            <!-- Settings Button -->
+            <Button Name="btn_setting" Height="40" Width="40" VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center" Panel.ZIndex="0" 
+                    Click="Button_Setting_Click"
+                    Content="{x:Static language:Lang.settings}" Margin="0,30,0,0">
+            </Button>
+        </StackPanel>
+        <!-- ##################################################### -->
 
     </Grid>
 </Window>
