@@ -106,6 +106,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose the source directory.
+        /// </summary>
+        public static string chooseDirectory_Source {
+            get {
+                return ResourceManager.GetString("chooseDirectory_Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Choose a file.
         /// </summary>
         public static string chooseFile_source {

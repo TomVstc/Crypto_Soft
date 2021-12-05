@@ -17,9 +17,9 @@ namespace Livrable_AppliGraphique
         {
         }
 
-        public void updateSave(string name, string source, string destination)
+        public void updateSave(string dirOrFile, string name, string source, string destination)
         {
-            Save save = new Save(name, source, destination);
+            Save save = new Save(dirOrFile, name, source, destination);
             save.fileSave();
         }
     }

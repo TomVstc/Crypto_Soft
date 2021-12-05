@@ -7,6 +7,6 @@ namespace Livrable_AppliGraphique
 {
     public interface IController
     {
-        void updateSave(string name, string Source, string Directory);
+        void updateSave(string dirOrFile, string name, string Source, string Directory);
     }
 }

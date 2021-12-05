@@ -25,7 +25,23 @@
                 BorderThickness="0" HorizontalAlignment="Right" 
                 Margin="0,20,20,0" Click="Button_Click">
             </Button>
+        </StackPanel>
 
+        <!-- Central Windows -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="350">
+            <TextBlock Text="{x:Static language:Lang.enter_Save_Name}"></TextBlock>
+            <TextBox Name="Text_Box_Name" Width="250" Height="30"></TextBox>
+            <Button Name="Button_Choose_Directory_Source" Content="{x:Static language:Lang.chooseDirectory_Source}"
+                        Width="250" Height="30" Margin="0,30,0,0" Click="Button_Choose_Directory_Source_Click"/>
+            <TextBlock Name="Name_Directory_Source_Destination" Margin="0,30,0,0"></TextBlock>
+
+            <Button Name="Button_Choose_Directory_Destination" Content="{x:Static language:Lang.chooseDirectory_Destination}"
+                        Width="250" Height="30" Margin="0,30,0,0" Click="Button_Choose_Directory_Destination_Click"/>
+            <TextBlock Name="Name_Directory_Destination" Margin="0,30,0,0"></TextBlock>
+
+            <Button Name="Button_Submit_File_Save" Content="{x:Static language:Lang.confirm}"
+                        Width="250" Height="30" Margin="0,30,0,0" Click="Button_Submit_File_Save_Click" 
+                     />
         </StackPanel>
 
         <!-- ##################################################### -->

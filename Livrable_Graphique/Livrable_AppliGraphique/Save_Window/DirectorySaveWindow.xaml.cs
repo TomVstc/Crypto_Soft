@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -17,7 +19,54 @@ namespace Livrable_AppliGraphique.Save_Window
     /// </summary>
     public partial class DirectorySaveWindow : Window
     {
+        #region ALL ATTRIBUTE
+        private string dirOrFile;
+        private string name;
+        private string fileSource;
+        private string fileTarget;
+        private string destination;
+        private string extention;
+        private IController Icontroller;
+        #endregion
+
+        #region SET/GET
+        // Creation of set and get
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public string FileSource
+        {
+            get { return fileSource; }
+            set { fileSource = value; }
+        }
+        public IController IController
+        {
+            get { return Icontroller; }
+            set { Icontroller = value; }
+        }
+        public string Destination
+        {
+            get { return destination; }
+            set { destination = value; }
+        }
+        public string Extention
+        {
+            get { return extention; }
+            set { extention = value; }
+        }
+
+        #endregion
         public Controller Controller { get; set; }
+
+        public DirectorySaveWindow()
+        {
+            dirOrFile = "";
+            name = "";
+            fileSource = "";
+            destination = "";
+        }
         public DirectorySaveWindow(Controller controller)
         {
             this.Controller = controller;
@@ -50,5 +99,37 @@ namespace Livrable_AppliGraphique.Save_Window
             this.Close();
         }
         #endregion
+
+        private void Button_Choose_Directory_Source_Click(object sender, RoutedEventArgs e)
+        {
+            var targetDialog = new System.Windows.Forms.FolderBrowserDialog();
+            targetDialog.ShowNewFolderButton = false;
+
+            if (targetDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Name_Directory_Source_Destination.Text = targetDialog.SelectedPath;
+            }
+        }
+
+        private void Button_Choose_Directory_Destination_Click(object sender, RoutedEventArgs e)
+        {
+            var targetDialog = new System.Windows.Forms.FolderBrowserDialog();
+            targetDialog.ShowNewFolderButton = false;
+
+            if (targetDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Name_Directory_Destination.Text = targetDialog.SelectedPath;
+            }
+        }
+
+        private void Button_Submit_File_Save_Click(object sender, RoutedEventArgs e)
+        {
+            DirectorySaveWindow directorySaveWindow = new DirectorySaveWindow();
+            directorySaveWindow.dirOrFile = "Directory";
+            directorySaveWindow.name = Text_Box_Name.Text;
+            directorySaveWindow.fileSource = Name_Directory_Source_Destination.Text;
+            directorySaveWindow.destination = Name_Directory_Destination.Text;
+            Controller.updateSave(directorySaveWindow.dirOrFile, directorySaveWindow.name, directorySaveWindow.fileSource, directorySaveWindow.destination);
+        }
     }
 }

@@ -20,13 +20,12 @@ namespace Livrable_AppliGraphique.Save_Window
     public partial class FileSaveWindow : Window
     {
         #region ALL ATTRIBUTE
-        // All attributes of a save
+        private string dirOrFile;
         private string name;
         private string fileSource;
-        //private string fileTarget;
+        private string fileTarget;
         private string destination;
         private string extention;
-
         private IController Icontroller;
         #endregion
 
@@ -138,10 +137,11 @@ namespace Livrable_AppliGraphique.Save_Window
         {
             FileSaveWindow fileSaveWindow = new FileSaveWindow();
             extention = Name_File_Source.Text.Split(".").Last();
+            fileSaveWindow.dirOrFile = "File";
             fileSaveWindow.name = Text_Box_Name.Text +"." + extention;
             fileSaveWindow.fileSource = Name_File_Source.Text;
             fileSaveWindow.destination = Name_Directory_Destination.Text;
-            Controller.updateSave(fileSaveWindow.name, fileSaveWindow.fileSource, fileSaveWindow.destination);
+            Controller.updateSave(fileSaveWindow.dirOrFile, fileSaveWindow.name, fileSaveWindow.fileSource, fileSaveWindow.destination);
         }
     }
 }

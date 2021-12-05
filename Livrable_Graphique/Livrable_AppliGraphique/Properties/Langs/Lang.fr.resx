@@ -132,6 +132,9 @@
   <data name="chooseDirectory_Destination" xml:space="preserve">
     <value>Choisissez le répertoire de destination</value>
   </data>
+  <data name="chooseDirectory_Source" xml:space="preserve">
+    <value>Choisissez le répertoire source</value>
+  </data>
   <data name="chooseFile_source" xml:space="preserve">
     <value>Choisissez un fichier</value>
   </data>
