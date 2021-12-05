@@ -107,7 +107,7 @@ namespace Livrable_AppliGraphique.Model
                 System.IO.File.Copy(fileSource, path, true);
                 DateTime Stop = DateTime.Now;
                 FileTransfertTime = (Stop - Start).ToString();
-
+                TotalFileToCopy = 1;
 
                 // Recup File Size
                 FileInfo fileinfo = new FileInfo(Destination + @"\" + fileName);
@@ -131,6 +131,7 @@ namespace Livrable_AppliGraphique.Model
                 {
                     FileSize += file.Length;
                     file.CopyTo(path + @"\" + file.Name, false);
+                    TotalFileToCopy++;
                 }
 
                 DateTime Stop = DateTime.Now;
@@ -139,13 +140,34 @@ namespace Livrable_AppliGraphique.Model
             }
 
             // Create StateLog when a Save = Actif
-            //createStateLog();
-            DailyLog daily= new DailyLog(this.fileName, this.fileSource, this.destination,
-            this.FileSize, this.fileTransfertTime, this.Time);
+            StateLog state = new StateLog(
+                this.fileName,
+                this.fileSource,
+                this.destination,
+                this.Time,
+                this.BackupState,
+                this.TotalFileToCopy,
+                this.FileSize,
+                this.TotalFileToCopy,
+                (int)this.FileSize
+                );
+            ;
+
+
+            // DailyLog update
+            DailyLog daily= new DailyLog(
+                this.fileName, 
+                this.fileSource, 
+                this.destination,
+                this.FileSize, 
+                this.fileTransfertTime, 
+                this.Time);
 
             BackupState = "NON ACTIF";
             // Update StateLog
-            //createStateLog();
+            StateLog stateLog = new StateLog(
+                this.fileName,
+                this.BackupState);
 
         }
     }

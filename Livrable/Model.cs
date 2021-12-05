@@ -213,7 +213,6 @@ namespace Livrable
             {
                 Console.WriteLine("\nDifferential no increment");
             }
-
         }
         
         // Create DailyLog
