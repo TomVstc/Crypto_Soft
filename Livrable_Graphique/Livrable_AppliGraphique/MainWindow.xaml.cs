@@ -44,8 +44,8 @@ namespace Livrable_AppliGraphique
 
         private void Button_Setting_Click(object sender, RoutedEventArgs e)
         {
-            SelectLanguage objSelectLanguage = new SelectLanguage(Controller);
-            objSelectLanguage.Show();
+            Settings objSettings = new Settings(Controller);
+            objSettings.Show();
             this.Close();
         }
 

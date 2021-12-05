@@ -61,6 +61,24 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Directory Save.
+        /// </summary>
+        public static string Button_Directory_Save {
+            get {
+                return ResourceManager.GetString("Button_Directory_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à File Save.
+        /// </summary>
+        public static string Button_File_Save {
+            get {
+                return ResourceManager.GetString("Button_File_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Home.
         /// </summary>
         public static string button_home {
@@ -79,11 +97,56 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose the destination directory.
+        /// </summary>
+        public static string chooseDirectory_Destination {
+            get {
+                return ResourceManager.GetString("chooseDirectory_Destination", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose the source directory.
+        /// </summary>
+        public static string chooseDirectory_Source {
+            get {
+                return ResourceManager.GetString("chooseDirectory_Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose a file.
+        /// </summary>
+        public static string chooseFile_source {
+            get {
+                return ResourceManager.GetString("chooseFile_source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Choose a langage.
         /// </summary>
         public static string chooseLanguage {
             get {
                 return ResourceManager.GetString("chooseLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose the save type.
+        /// </summary>
+        public static string chooseSave {
+            get {
+                return ResourceManager.GetString("chooseSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose your society software.
+        /// </summary>
+        public static string chooseSoftwareSoeciety {
+            get {
+                return ResourceManager.GetString("chooseSoftwareSoeciety", resourceCulture);
             }
         }
         
@@ -102,6 +165,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         public static string en {
             get {
                 return ResourceManager.GetString("en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Enter the save name.
+        /// </summary>
+        public static string enter_Save_Name {
+            get {
+                return ResourceManager.GetString("enter_Save_Name", resourceCulture);
             }
         }
         
@@ -133,6 +205,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Language.
+        /// </summary>
+        public static string language {
+            get {
+                return ResourceManager.GetString("language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Leave.
         /// </summary>
         public static string leave {
@@ -142,11 +223,29 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à No software society selectionned.
+        /// </summary>
+        public static string NoSoftware {
+            get {
+                return ResourceManager.GetString("NoSoftware", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Settings.
         /// </summary>
         public static string settings {
             get {
                 return ResourceManager.GetString("settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Software Society.
+        /// </summary>
+        public static string software_society {
+            get {
+                return ResourceManager.GetString("software_society", resourceCulture);
             }
         }
         

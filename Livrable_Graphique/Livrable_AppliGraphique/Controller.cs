@@ -1,35 +1,26 @@
-﻿using System;
+﻿using Livrable_AppliGraphique.Model;
+using Livrable_AppliGraphique.Save_Window;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
 namespace Livrable_AppliGraphique
 {
-    public sealed class Controller
+    public sealed class Controller : IController
     {
+        private Save save;
         private static Controller instance = null;
         // Semaphore -> Limit the number of Thread
-        public static Semaphore MaxSizeSemaphore;
-        private static readonly object padlock = new object();
 
         public Controller()
         {
-            MaxSizeSemaphore = new Semaphore(1, 1);
         }
 
-        public static Controller Instance
+        public void updateSave(string dirOrFile, string name, string source, string destination)
         {
-            get
-            {
-                lock (padlock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new Controller();
-                    }
-                    return instance;
-                }
-            }
+            Save save = new Save(dirOrFile, name, source, destination);
+            save.fileSave();
         }
     }
 }

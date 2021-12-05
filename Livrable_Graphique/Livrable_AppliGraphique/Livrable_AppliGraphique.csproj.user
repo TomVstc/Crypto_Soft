@@ -7,13 +7,22 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="SaveWindow.xaml.cs">
+    <Compile Update="Save_Window\DirectorySaveWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SelectLanguage.xaml.cs">
+    <Compile Update="Save_Window\FileSaveWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Settings.xaml.cs">
+    <Compile Update="Save_Window\SaveWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Setting_Window\SelectLanguage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Setting_Window\Settings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Setting_Window\SoftwareSocietyWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -26,13 +35,22 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SaveWindow.xaml">
+    <Page Update="Save_Window\DirectorySaveWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SelectLanguage.xaml">
+    <Page Update="Save_Window\FileSaveWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Settings.xaml">
+    <Page Update="Save_Window\SaveWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Setting_Window\SelectLanguage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Setting_Window\Settings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Setting_Window\SoftwareSocietyWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

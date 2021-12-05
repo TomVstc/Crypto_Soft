@@ -117,20 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Button_Directory_Save" xml:space="preserve">
+    <value>Directory Save</value>
+  </data>
+  <data name="Button_File_Save" xml:space="preserve">
+    <value>File Save</value>
+  </data>
   <data name="button_home" xml:space="preserve">
     <value>Home</value>
   </data>
   <data name="button_save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="chooseDirectory_Destination" xml:space="preserve">
+    <value>Choose the destination directory</value>
+  </data>
+  <data name="chooseDirectory_Source" xml:space="preserve">
+    <value>Choose the source directory</value>
+  </data>
+  <data name="chooseFile_source" xml:space="preserve">
+    <value>Choose a file</value>
+  </data>
   <data name="chooseLanguage" xml:space="preserve">
     <value>Choose a langage</value>
+  </data>
+  <data name="chooseSave" xml:space="preserve">
+    <value>Choose the save type</value>
+  </data>
+  <data name="chooseSoftwareSoeciety" xml:space="preserve">
+    <value>Choose your society software</value>
   </data>
   <data name="confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
   <data name="en" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="enter_Save_Name" xml:space="preserve">
+    <value>Enter the save name</value>
   </data>
   <data name="exit" xml:space="preserve">
     <value>Exit App</value>
@@ -141,11 +165,20 @@
   <data name="hello" xml:space="preserve">
     <value>Hello</value>
   </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="leave" xml:space="preserve">
     <value>Leave</value>
   </data>
+  <data name="NoSoftware" xml:space="preserve">
+    <value>No software society selectionned</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="software_society" xml:space="preserve">
+    <value>Software Society</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>Welcome on EasySave Application</value>

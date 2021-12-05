@@ -25,12 +25,9 @@
                 Width="40"
                 BorderThickness="0" HorizontalAlignment="Right" Margin="0,20,20,0" Click="Button_Click"
                 >
-                <!--<Button.Background>
-                    -->
-                <!--<ImageBrush ImageSource="Image/btn_Off.png"></ImageBrush>-->
-                <!--
-                </Button.Background>-->
             </Button>
+
+            <!-- Central Content -->
             <Label Content="{x:Static language:Lang.welcome}" 
                    FontSize="40px" 
                    Width="642" HorizontalAlignment="Center" VerticalAlignment="Stretch"
