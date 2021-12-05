@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -17,7 +18,64 @@ namespace Livrable_AppliGraphique.Save_Window
     /// </summary>
     public partial class FileSaveWindow : Window
     {
+        #region ALL ATTRIBUTE
+        // All attributes of a save
+        private string name;
+        private string fileSource;
+        //private string fileTarget;
+        private string destination;
+        //private string extention;
+
+        private IController Icontroller;
+        #endregion
+
+        #region SET/GET
+        // Creation of set and get
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public string FileSource
+        {
+            get { return fileSource; }
+            set { fileSource = value; }
+        }
+        //public string FileTarget
+        //{
+        //    get { return fileTarget; }
+        //    set { fileTarget = value; }
+        //}
+        //public string Type
+        //{
+        //    get { return type; }
+        //    set { type = value; }
+        //}
+        public IController IController
+        {
+            get { return Icontroller; }
+            set { Icontroller = value; }
+        }
+        public string Destination
+        {
+            get { return destination; }
+            set { destination = value; }
+        }
+        //public string Extension
+        //{
+        //    get { return extention; }
+        //    set { extention = value; }
+        //}
+
+        #endregion
+
         public Controller Controller { get; set; }
+        public FileSaveWindow()
+        {
+            name = "test";
+            fileSource = "";
+            destination = "";
+        }
         public FileSaveWindow(Controller controller)
         {
             this.Controller = controller;
@@ -50,5 +108,36 @@ namespace Livrable_AppliGraphique.Save_Window
             this.Close();
         }
         #endregion
+
+        private void Button_Choose_File_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                System.Windows.MessageBox.Show("Ok");
+                Name_File_Source.Text = openFileDialog.FileName;
+            }
+        }
+
+        private void Button_Choose_Directory_Destination_Click(object sender, RoutedEventArgs e)
+        {
+            var targetDialog = new System.Windows.Forms.FolderBrowserDialog();
+            targetDialog.ShowNewFolderButton = false;
+
+            if (targetDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                System.Windows.MessageBox.Show("Okk");
+                Name_Directory_Destination.Text = targetDialog.SelectedPath;
+            }
+        }
+
+        private void Button_Submit_File_Save_Click(object sender, RoutedEventArgs e)
+        {
+            FileSaveWindow fileSaveWindow = new FileSaveWindow();
+            fileSaveWindow.fileSource = Name_File_Source.Text;
+            fileSaveWindow.destination = Name_Directory_Destination.Text;
+            Controller.updateSave(fileSaveWindow.fileSource, fileSaveWindow.destination);
+        }
     }
 }

@@ -95,7 +95,7 @@ namespace Livrable_AppliGraphique {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Livrable_AppliGraphique;V1.0.0.0;component/setting_window/settings.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Livrable_AppliGraphique;component/setting_window/settings.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Setting_Window\Settings.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

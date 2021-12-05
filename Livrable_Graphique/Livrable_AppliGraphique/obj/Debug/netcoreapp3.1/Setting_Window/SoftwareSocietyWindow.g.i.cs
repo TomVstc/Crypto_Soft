@@ -103,8 +103,7 @@ namespace Livrable_AppliGraphique.Setting_Window {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Livrable_AppliGraphique;V1.0.0.0;component/setting_window/softwaresocietywindow." +
-                    "xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Livrable_AppliGraphique;component/setting_window/softwaresocietywindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Setting_Window\SoftwareSocietyWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

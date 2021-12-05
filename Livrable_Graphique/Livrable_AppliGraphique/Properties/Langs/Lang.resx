@@ -129,6 +129,12 @@
   <data name="button_save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="chooseDirectory_Destination" xml:space="preserve">
+    <value>Choose the destination directory</value>
+  </data>
+  <data name="chooseFile_source" xml:space="preserve">
+    <value>Choose a file</value>
+  </data>
   <data name="chooseLanguage" xml:space="preserve">
     <value>Choose a langage</value>
   </data>

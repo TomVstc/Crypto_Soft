@@ -97,6 +97,24 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose the destination directory.
+        /// </summary>
+        public static string chooseDirectory_Destination {
+            get {
+                return ResourceManager.GetString("chooseDirectory_Destination", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose a file.
+        /// </summary>
+        public static string chooseFile_source {
+            get {
+                return ResourceManager.GetString("chooseFile_source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Choose a langage.
         /// </summary>
         public static string chooseLanguage {
