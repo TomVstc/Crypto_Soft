@@ -116,7 +116,6 @@ namespace Livrable_AppliGraphique.Save_Window
 
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                System.Windows.MessageBox.Show("Ok");
                 Name_File_Source.Text = openFileDialog.FileName;
             }
         }
@@ -128,7 +127,6 @@ namespace Livrable_AppliGraphique.Save_Window
 
             if (targetDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                System.Windows.MessageBox.Show("Okk");
                 Name_Directory_Destination.Text = targetDialog.SelectedPath;
             }
         }
