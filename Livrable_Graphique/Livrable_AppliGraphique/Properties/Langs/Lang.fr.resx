@@ -150,6 +150,9 @@
   <data name="en" xml:space="preserve">
     <value>Anglais</value>
   </data>
+  <data name="enter_Save_Name" xml:space="preserve">
+    <value>Entrez le nom de la sauvegarde</value>
+  </data>
   <data name="exit" xml:space="preserve">
     <value>Quitter l'application</value>
   </data>

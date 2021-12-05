@@ -17,10 +17,10 @@ namespace Livrable_AppliGraphique
         {
         }
 
-        public void updateSave(string v1, string v2)
+        public void updateSave(string name, string source, string destination)
         {
-            Save save = new Save(v1, v2);
-            save.test();
+            Save save = new Save(name, source, destination);
+            save.fileSave();
         }
     }
 }

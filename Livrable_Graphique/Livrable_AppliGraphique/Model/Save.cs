@@ -56,17 +56,17 @@ namespace Livrable_AppliGraphique.Model
 
         #endregion
 
-        public Save(string FileSource, string Destination)
+        public Save(string Name, string FileSource, string Destination)
         {
-            name = "test";
+            name = Name;
             fileSource = FileSource;
             destination = Destination;
         }
 
-        public void test()
+        public void fileSave()
         {
             //System.Windows.MessageBox.Show(this.fileSource + this.destination);
-            string path = destination + @"\" + name;
+            string path = destination + @"\" + Name;
             System.IO.File.Copy(fileSource, path, true);
             System.Windows.MessageBox.Show("Done");
         }

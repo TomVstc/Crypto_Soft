@@ -160,6 +160,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Enter the save name.
+        /// </summary>
+        public static string enter_Save_Name {
+            get {
+                return ResourceManager.GetString("enter_Save_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Exit App.
         /// </summary>
         public static string exit {

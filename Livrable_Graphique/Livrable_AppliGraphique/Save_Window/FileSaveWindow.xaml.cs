@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,7 +25,7 @@ namespace Livrable_AppliGraphique.Save_Window
         private string fileSource;
         //private string fileTarget;
         private string destination;
-        //private string extention;
+        private string extention;
 
         private IController Icontroller;
         #endregion
@@ -61,20 +62,21 @@ namespace Livrable_AppliGraphique.Save_Window
             get { return destination; }
             set { destination = value; }
         }
-        //public string Extension
-        //{
-        //    get { return extention; }
-        //    set { extention = value; }
-        //}
+        public string Extention
+        {
+            get { return extention; }
+            set { extention = value; }
+        }
 
         #endregion
 
         public Controller Controller { get; set; }
         public FileSaveWindow()
         {
-            name = "test";
+            name = "";
             fileSource = "";
             destination = "";
+            extention = "";
         }
         public FileSaveWindow(Controller controller)
         {
@@ -135,9 +137,11 @@ namespace Livrable_AppliGraphique.Save_Window
         private void Button_Submit_File_Save_Click(object sender, RoutedEventArgs e)
         {
             FileSaveWindow fileSaveWindow = new FileSaveWindow();
+            extention = Name_File_Source.Text.Split(".").Last();
+            fileSaveWindow.name = Text_Box_Name.Text +"." + extention;
             fileSaveWindow.fileSource = Name_File_Source.Text;
             fileSaveWindow.destination = Name_Directory_Destination.Text;
-            Controller.updateSave(fileSaveWindow.fileSource, fileSaveWindow.destination);
+            Controller.updateSave(fileSaveWindow.name, fileSaveWindow.fileSource, fileSaveWindow.destination);
         }
     }
 }

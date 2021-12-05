@@ -26,8 +26,9 @@
             </Button>
 
         </StackPanel>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="307">
-
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="350">
+            <TextBlock Text="{x:Static language:Lang.enter_Save_Name}"></TextBlock>
+            <TextBox Name="Text_Box_Name" Width="250" Height="30"></TextBox>
             <Button Name="Button_Choose_File" Content="{x:Static language:Lang.chooseFile_source}"
                         Width="250" Height="30" Margin="0,30,0,0" Click="Button_Choose_File_Click"/>
             <TextBlock Name="Name_File_Source" Margin="0,30,0,0"></TextBlock>
