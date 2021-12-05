@@ -95,14 +95,12 @@ namespace Livrable_AppliGraphique.Model
         public void fileSave()
         {
             BackupState = "ACTIF";
-
+            string fileName = FileName;
+            string fileSource = FileSource;
+            string fileTarget = Destination;
+            string path = fileTarget + @"\" + fileName;
             if (Type == "File")
             {
-                string fileName = FileName;
-                string fileSource = FileSource;
-                string fileTarget = Destination;
-                string path = fileTarget + @"\" + fileName;
-
                 DateTime Start = DateTime.Now;
                 Time = Start;
 
@@ -116,52 +114,39 @@ namespace Livrable_AppliGraphique.Model
                 FileSize = fileinfo.Length;
 
                 System.Windows.MessageBox.Show("Done");
-                }
-                if (Type == "Directory")
+            }
+            if (Type == "Directory")
+            {
+                DirectoryInfo dir = new DirectoryInfo(fileSource);
+                DirectoryInfo[] dirs = dir.GetDirectories();
+                // If destination doesn't exist => create
+                Directory.CreateDirectory(path);
+
+                FileInfo[] files = dir.GetFiles();
+
+                DateTime Start = DateTime.Now;
+                Time = Start;
+
+                foreach (FileInfo file in files)
                 {
-                    string fileName = FileName;
-                    string fileSource = FileSource;
-                    string fileTarget = Destination + @"\" + FileName;
-
-                    DirectoryInfo dir = new DirectoryInfo(fileSource);
-                    DirectoryInfo[] dirs = dir.GetDirectories();
-                    // If destination doesn't exist => create
-                    Directory.CreateDirectory(fileTarget);
-
-                    FileInfo[] files = dir.GetFiles();
-                    //string[] files = System.IO.Directory.GetFiles(fileSource);
-                    //string destFile = System.IO.Path.Combine(fileTarget, fileName);
-
-                    DateTime Start = DateTime.Now;
-                    Time = Start;
-
-                    foreach (FileInfo file in files)
-                    {
-                        FileSize += file.Length;
-                        file.CopyTo(fileTarget + @"\" + file.Name, false);
-                        TotalFileToCopy++;
-                    }
-
-
-                    DateTime Stop = DateTime.Now;
-                    FileTransfertTime = (Stop - Start).ToString();
-                    System.Windows.MessageBox.Show("Done");
+                    FileSize += file.Length;
+                    file.CopyTo(path + @"\" + file.Name, false);
                 }
 
-                // Create StateLog when a Save = Actif
-                //createStateLog();
-                //createDailyLog();
-                BackupState = "NON ACTIF";
-                // Update StateLog
-                //createStateLog();
-
+                DateTime Stop = DateTime.Now;
+                FileTransfertTime = (Stop - Start).ToString();
+                System.Windows.MessageBox.Show("Done");
             }
 
-        }
+            // Create StateLog when a Save = Actif
+            //createStateLog();
+            DailyLog daily= new DailyLog(this.fileName, this.fileSource, this.destination,
+            this.FileSize, this.fileTransfertTime, this.Time);
 
-        ////System.Windows.MessageBox.Show(this.fileSource + this.destination);
-        //string path = destination + @"\" + Name;
-        //System.IO.File.Copy(fileSource, path, true);
-        //System.Windows.MessageBox.Show("Done");
-    
+            BackupState = "NON ACTIF";
+            // Update StateLog
+            //createStateLog();
+
+        }
+    }
 }
