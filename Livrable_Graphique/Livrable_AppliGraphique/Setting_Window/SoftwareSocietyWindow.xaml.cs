@@ -10,6 +10,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Linq;
+using System.IO;
+using System.Runtime;
+
 
 namespace Livrable_AppliGraphique.Setting_Window
 {
@@ -18,6 +22,8 @@ namespace Livrable_AppliGraphique.Setting_Window
     /// </summary>
     public partial class SoftwareSocietyWindow : Window
     {
+        public string nameSoftwareSociety { get; set; }
+
         public Controller Controller { get; set; }
 
         #region Left Menu
@@ -67,7 +73,10 @@ namespace Livrable_AppliGraphique.Setting_Window
 
         private void Button_submit_Click(object sender, RoutedEventArgs e)
         {
-
+            string nameSoftware = Name_Software_Society.Text;
+            var nameSoftwareSociety = new DirectoryInfo(nameSoftware).Name;
+            System.Windows.MessageBox.Show(nameSoftwareSociety);
+            
         }
     }
 }

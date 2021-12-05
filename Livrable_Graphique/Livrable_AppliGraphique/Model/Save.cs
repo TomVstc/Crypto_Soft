@@ -1,9 +1,11 @@
 ﻿using Livrable_AppliGraphique.Save_Window;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
+using Livrable_AppliGraphique.Setting_Window;
 
 namespace Livrable_AppliGraphique.Model
 {
@@ -94,6 +96,9 @@ namespace Livrable_AppliGraphique.Model
 
         public void fileSave()
         {
+            while (EnterpriseSoftwareRunning() == true) { };
+
+
             BackupState = "ACTIF";
             string fileName = FileName;
             string fileSource = FileSource;
@@ -168,7 +173,39 @@ namespace Livrable_AppliGraphique.Model
             StateLog stateLog = new StateLog(
                 this.fileName,
                 this.BackupState);
+        }
 
+        // Detect Software society
+        public static bool EnterpriseSoftwareRunning()
+        {
+            if (Process.GetProcessesByName("Calculator").Length > 0)
+            {
+                string message = "You have to close your enterprise software if you want to continue the backup.\n Do you want to close it ?";
+                string caption = "EasySave";
+                var result = System.Windows.MessageBox.Show(message, caption,
+                    System.Windows.MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case System.Windows.MessageBoxResult.Yes:
+                        Process[] proc = Process.GetProcessesByName("Calculator");
+                        if (proc.Length == 0)
+                        {
+                            System.Windows.MessageBox.Show("The software has been closed");
+                        }
+                        else
+                        {
+                            proc[0].Kill();
+                            System.Windows.MessageBox.Show("The software has been closed");
+                        }
+                        break;
+                    case System.Windows.MessageBoxResult.No:
+                        EnterpriseSoftwareRunning();
+                        break;
+                }
+                return true;
+
+            }
+            return false;
         }
     }
 }
