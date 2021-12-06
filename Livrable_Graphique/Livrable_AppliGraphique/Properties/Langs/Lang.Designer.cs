@@ -142,7 +142,7 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Choose your society software.
+        ///   Recherche une chaîne localisée semblable à Enter your society software.
         /// </summary>
         public static string chooseSoftwareSoeciety {
             get {

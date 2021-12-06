@@ -11,6 +11,7 @@ namespace Livrable_AppliGraphique
     {
         private Save save;
         private static Controller instance = null;
+        public string softwareSocietyName;
         // Semaphore -> Limit the number of Thread
 
         public Controller()
@@ -20,6 +21,7 @@ namespace Livrable_AppliGraphique
         public void updateSave(string dirOrFile, string name, string source, string destination)
         {
             Save save = new Save(dirOrFile, name, source, destination);
+            save.EnterpriseSoftwareRunning(softwareSocietyName);
             save.fileSave();
         }
     }

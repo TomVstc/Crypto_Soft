@@ -145,7 +145,7 @@
     <value>Choose the save type</value>
   </data>
   <data name="chooseSoftwareSoeciety" xml:space="preserve">
-    <value>Choose your society software</value>
+    <value>Enter your society software</value>
   </data>
   <data name="confirm" xml:space="preserve">
     <value>Confirm</value>

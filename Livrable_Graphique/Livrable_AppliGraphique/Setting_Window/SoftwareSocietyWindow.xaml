@@ -24,11 +24,10 @@
                 BorderThickness="0" HorizontalAlignment="Right" 
                 Margin="0,20,20,0" Click="Button_Click">
             </Button>
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="229">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="229" Margin="0,30,0,0">
+                <TextBlock TextAlignment="Center" Text="{x:Static language:Lang.chooseSoftwareSoeciety}"></TextBlock>
 
-                <Button Name="Button_Choose_SoftwareSociety" Content="{x:Static language:Lang.chooseSoftwareSoeciety}"
-                        Width="170" Height="30" Click="Button_Choose_SoftwareSociety_Click" Margin="0,30,0,0"/>
-                <TextBlock Name="Name_Software_Society" Text="{x:Static language:Lang.NoSoftware}" Margin="0,30,0,0"></TextBlock>
+                <TextBox Name="TextBox_SoftwareSociety_Name" Margin="0,30,0,0" ></TextBox>
                 <Button Name="Button_submit" Content="{x:Static language:Lang.confirm}"
                         Width="170" Height="30" Margin="0,30,0,0" Click="Button_submit_Click"/>
 

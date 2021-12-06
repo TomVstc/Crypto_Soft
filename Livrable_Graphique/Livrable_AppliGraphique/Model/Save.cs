@@ -96,7 +96,7 @@ namespace Livrable_AppliGraphique.Model
 
         public void fileSave()
         {
-            while (EnterpriseSoftwareRunning() == true) { };
+            // while (EnterpriseSoftwareRunning() == true) { };
 
 
             BackupState = "ACTIF";
@@ -158,7 +158,6 @@ namespace Livrable_AppliGraphique.Model
                 );
             ;
 
-
             // DailyLog update
             DailyLog daily= new DailyLog(
                 this.fileName, 
@@ -175,10 +174,11 @@ namespace Livrable_AppliGraphique.Model
                 this.BackupState);
         }
 
+        // ANALYSER CE QUIL Y A DANS PROCESS (si detect calculatrice ou logiciel prosoft alors crash)
         // Detect Software society
-        public static bool EnterpriseSoftwareRunning()
+        public bool EnterpriseSoftwareRunning(string nameSoftware)
         {
-            if (Process.GetProcessesByName("Calculator").Length > 0)
+            if (Process.GetProcessesByName(nameSoftware).Length > 0)
             {
                 string message = "You have to close your enterprise software if you want to continue the backup.\n Do you want to close it ?";
                 string caption = "EasySave";
@@ -187,7 +187,7 @@ namespace Livrable_AppliGraphique.Model
                 switch (result)
                 {
                     case System.Windows.MessageBoxResult.Yes:
-                        Process[] proc = Process.GetProcessesByName("Calculator");
+                        Process[] proc = Process.GetProcessesByName(nameSoftware);
                         if (proc.Length == 0)
                         {
                             System.Windows.MessageBox.Show("The software has been closed");
@@ -199,7 +199,7 @@ namespace Livrable_AppliGraphique.Model
                         }
                         break;
                     case System.Windows.MessageBoxResult.No:
-                        EnterpriseSoftwareRunning();
+                        EnterpriseSoftwareRunning(nameSoftware);
                         break;
                 }
                 return true;

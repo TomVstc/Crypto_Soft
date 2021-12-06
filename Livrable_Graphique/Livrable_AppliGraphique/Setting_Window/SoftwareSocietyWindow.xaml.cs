@@ -58,25 +58,12 @@ namespace Livrable_AppliGraphique.Setting_Window
             InitializeComponent();
         }
 
-        private void Button_Choose_SoftwareSociety_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string softwarePath = openFileDialog.FileName;
-
-                Name_Software_Society.Text = softwarePath;
-
-            }
-        }
 
         private void Button_submit_Click(object sender, RoutedEventArgs e)
         {
-            string nameSoftware = Name_Software_Society.Text;
-            var nameSoftwareSociety = new DirectoryInfo(nameSoftware).Name;
-            System.Windows.MessageBox.Show(nameSoftwareSociety);
-            
+            string softwareSocietyName = TextBox_SoftwareSociety_Name.Text;
+            System.Windows.MessageBox.Show(softwareSocietyName);
+            Controller.softwareSocietyName = softwareSocietyName;
         }
     }
 }

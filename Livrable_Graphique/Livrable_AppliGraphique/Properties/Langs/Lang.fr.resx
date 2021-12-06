@@ -145,7 +145,7 @@
     <value>Choisir le type de sauvegarde</value>
   </data>
   <data name="chooseSoftwareSoeciety" xml:space="preserve">
-    <value>Choisissez votre logiciel métier</value>
+    <value>Entrer le nom votre logiciel métier</value>
   </data>
   <data name="confirm" xml:space="preserve">
     <value>Confirmer</value>
