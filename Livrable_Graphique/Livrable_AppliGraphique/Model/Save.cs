@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
+using System.Linq;
+
 using Livrable_AppliGraphique.Setting_Window;
 
 namespace Livrable_AppliGraphique.Model
@@ -86,7 +88,7 @@ namespace Livrable_AppliGraphique.Model
 
         #endregion
 
-        public Save(string type,string Name, string FileSource, string Destination)
+        public Save(string type, string Name, string FileSource, string Destination)
         {
             Type = type;
             FileName = Name;
@@ -111,6 +113,14 @@ namespace Livrable_AppliGraphique.Model
 
                 System.IO.File.Copy(fileSource, path, true);
                 DateTime Stop = DateTime.Now;
+
+                string recupExtention = fileSource.Split(".").Last();
+                //cryptage du fichier
+                if(recupExtention == Extension)
+                {
+                    encrypt(fileSource, path);
+                }
+
                 FileTransfertTime = (Stop - Start).ToString();
                 TotalFileToCopy = 1;
 
@@ -159,12 +169,12 @@ namespace Livrable_AppliGraphique.Model
             ;
 
             // DailyLog update
-            DailyLog daily= new DailyLog(
-                this.fileName, 
-                this.fileSource, 
+            DailyLog daily = new DailyLog(
+                this.fileName,
+                this.fileSource,
                 this.destination,
-                this.FileSize, 
-                this.fileTransfertTime, 
+                this.FileSize,
+                this.fileTransfertTime,
                 this.Time);
 
             BackupState = "NON ACTIF";
@@ -206,6 +216,41 @@ namespace Livrable_AppliGraphique.Model
 
             }
             return false;
+        }
+
+        public void encrypt(string pathFileToEncrypt, string pathTargetFile)
+        {
+            StreamReader sr = new StreamReader(pathFileToEncrypt); //fichier à crypter
+            StreamWriter sw = new StreamWriter(pathTargetFile); //fichier où écrire
+            Process crypt = new Process(); //logiciel cryptosoft
+
+            //recup du chemin vers l'exécutable de cryptosoft adapté à chaque PC
+            //string fullPath = Environment.CurrentDirectory;
+            //string halfPath = fullPath.Substring(0, 133);
+            //string path = "Cryptage.exe";
+
+            crypt.StartInfo.FileName = @"D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Cryptage\Cryptage.exe";
+            crypt.StartInfo.UseShellExecute = false;
+            crypt.StartInfo.RedirectStandardOutput = true;
+            crypt.StartInfo.RedirectStandardInput = true;
+            crypt.StartInfo.RedirectStandardError = true;
+
+            string line;
+            line = sr.ReadLine();
+
+            while (line != null)
+            {
+                crypt.StartInfo.Arguments = line; //on demande au logiciel de cryptage de crypter le contenu du fichier
+                crypt.Start(); //lancement de cryptosoft
+                string cryptedLine = crypt.StandardOutput.ReadToEnd();
+                crypt.WaitForExit();
+
+                sw.WriteLine(cryptedLine); //on écrit dans le fichier le contenu crypté du précédent fichier 
+                line = sr.ReadLine();
+            }
+
+            sr.Close();
+            sw.Close();
         }
     }
 }

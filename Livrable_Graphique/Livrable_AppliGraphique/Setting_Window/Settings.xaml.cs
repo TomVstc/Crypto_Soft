@@ -65,5 +65,12 @@ namespace Livrable_AppliGraphique
             objSoftwareSocietyWindow.Show();
             this.Close();
         }
+
+        private void Button_Extension_Click(object sender, RoutedEventArgs e)
+        {
+            ExtensionWindow objExtensionWindow = new ExtensionWindow(Controller);
+            objExtensionWindow.Show();
+            this.Close();
+        }
     }
 }

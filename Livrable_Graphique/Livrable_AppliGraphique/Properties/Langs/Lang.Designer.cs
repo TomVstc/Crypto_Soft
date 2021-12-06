@@ -115,6 +115,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose your extension (ex : txt).
+        /// </summary>
+        public static string chooseExtension {
+            get {
+                return ResourceManager.GetString("chooseExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Choose a file.
         /// </summary>
         public static string chooseFile_source {
@@ -183,6 +192,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         public static string exit {
             get {
                 return ResourceManager.GetString("exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Extension.
+        /// </summary>
+        public static string extension {
+            get {
+                return ResourceManager.GetString("extension", resourceCulture);
             }
         }
         

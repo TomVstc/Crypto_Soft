@@ -135,6 +135,9 @@
   <data name="chooseDirectory_Source" xml:space="preserve">
     <value>Choose the source directory</value>
   </data>
+  <data name="chooseExtension" xml:space="preserve">
+    <value>Choose your extension (ex : txt)</value>
+  </data>
   <data name="chooseFile_source" xml:space="preserve">
     <value>Choose a file</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="exit" xml:space="preserve">
     <value>Exit App</value>
+  </data>
+  <data name="extension" xml:space="preserve">
+    <value>Extension</value>
   </data>
   <data name="fr" xml:space="preserve">
     <value>French</value>
