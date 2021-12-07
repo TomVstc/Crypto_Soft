@@ -147,6 +147,14 @@ namespace Livrable_AppliGraphique.Model
                     FileSize += file.Length;
                     file.CopyTo(path + @"\" + file.Name, false);
                     TotalFileToCopy++;
+
+                    string recupExtention = file.Name.Split(".").Last();
+                    string test = fileTarget + @"\" + fileName + @"\" + file.Name;
+
+                    if (recupExtention == Extension)
+                    {
+                        encrypt(fileSource + @"\" + file.Name, test);
+                    }
                 }
 
                 DateTime Stop = DateTime.Now;
