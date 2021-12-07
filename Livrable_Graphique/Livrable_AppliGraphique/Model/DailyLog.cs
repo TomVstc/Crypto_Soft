@@ -16,6 +16,7 @@ namespace Livrable_AppliGraphique.Model
         private long fileSize;
         private string fileTransfertTime;
         private DateTime time;
+        private string encryptTime;
         #endregion
 
         #region SET/GET
@@ -50,6 +51,11 @@ namespace Livrable_AppliGraphique.Model
             get { return time; }
             set { time = value; }
         }
+        public string EncryptTime
+        {
+            get { return encryptTime; }
+            set { encryptTime = value; }
+        }
         #endregion
 
         public DailyLog()
@@ -60,9 +66,10 @@ namespace Livrable_AppliGraphique.Model
             FileSize = 0;
             FileTransfertTime = "";
             Time = default;
+            EncryptTime = "";
         }
 
-        public DailyLog(string aName, string fileSource, string fileTarget, long fileSize, string fileTransfertTime, DateTime aTime)
+        public DailyLog(string aName, string fileSource, string fileTarget, long fileSize, string fileTransfertTime, DateTime aTime, string aEncryptTime)
         {
             Name = aName;
             FileSource = fileSource;
@@ -70,6 +77,7 @@ namespace Livrable_AppliGraphique.Model
             FileSize = fileSize;
             FileTransfertTime = fileTransfertTime;
             Time = aTime;
+            encryptTime = aEncryptTime;
 
             createDailyLog(this);
         }

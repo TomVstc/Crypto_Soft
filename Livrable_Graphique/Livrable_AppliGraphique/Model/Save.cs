@@ -24,6 +24,7 @@ namespace Livrable_AppliGraphique.Model
         private DateTime time;
         private string backupState;
         private int totalFileToCopy;
+        private string encryptInfo;
         #endregion
 
         #region SET/GET
@@ -83,6 +84,11 @@ namespace Livrable_AppliGraphique.Model
             get { return totalFileToCopy; }
             set { totalFileToCopy = value; }
         }
+        public string EncryptInfo
+        {
+            get { return encryptInfo; }
+            set { encryptInfo = value; }
+        }
 
 
         #endregion
@@ -114,11 +120,20 @@ namespace Livrable_AppliGraphique.Model
                 DateTime Stop = DateTime.Now;
 
                 string recupExtention = fileSource.Split(".").Last();
+
                 //cryptage du fichier
-                if(recupExtention == Extension)
+                if (recupExtention == Extension)
                 {
+                    DateTime startCrypt = DateTime.Now;
                     encrypt(fileSource, path);
+                    DateTime stopCrypt = DateTime.Now;
+                    encryptInfo = (stopCrypt - startCrypt).ToString();
                 }
+                else
+                {
+                    encryptInfo = "0";
+                }
+ 
 
                 FileTransfertTime = (Stop - Start).ToString();
                 TotalFileToCopy = 1;
@@ -140,6 +155,7 @@ namespace Livrable_AppliGraphique.Model
 
                 DateTime Start = DateTime.Now;
                 Time = Start;
+                DateTime startCrypt = DateTime.Now;
 
                 foreach (FileInfo file in files)
                 {
@@ -155,6 +171,8 @@ namespace Livrable_AppliGraphique.Model
                         encrypt(fileSource + @"\" + file.Name, test);
                     }
                 }
+                DateTime stopCrypt = DateTime.Now;
+                encryptInfo = (stopCrypt - startCrypt).ToString();
 
                 DateTime Stop = DateTime.Now;
                 FileTransfertTime = (Stop - Start).ToString();
@@ -182,7 +200,8 @@ namespace Livrable_AppliGraphique.Model
                 this.destination,
                 this.FileSize,
                 this.fileTransfertTime,
-                this.Time);
+                this.Time,
+                this.encryptInfo);
 
             BackupState = "NON ACTIF";
             // Update StateLog
