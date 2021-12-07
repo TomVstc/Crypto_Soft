@@ -127,7 +127,7 @@ namespace Livrable_AppliGraphique.Model
                 FileInfo fileinfo = new FileInfo(Destination + @"\" + fileName);
                 FileSize = fileinfo.Length;
 
-                System.Windows.MessageBox.Show("Done");
+                System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.done);
             }
             if (Type == "Directory")
             {
@@ -158,7 +158,7 @@ namespace Livrable_AppliGraphique.Model
 
                 DateTime Stop = DateTime.Now;
                 FileTransfertTime = (Stop - Start).ToString();
-                System.Windows.MessageBox.Show("Done");
+                System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.done);
             }
 
             // Create StateLog when a Save = Actif
@@ -197,7 +197,7 @@ namespace Livrable_AppliGraphique.Model
         {
             if (Process.GetProcessesByName(nameSoftware).Length > 0)
             {
-                string message = "You have to close your enterprise software if you want to continue the backup.\n Do you want to close it ?";
+                string message = Livrable_AppliGraphique.Properties.Langs.Lang.openSoftware;
                 string caption = "EasySave";
                 var result = System.Windows.MessageBox.Show(message, caption,
                     System.Windows.MessageBoxButton.YesNo);
@@ -207,12 +207,12 @@ namespace Livrable_AppliGraphique.Model
                         Process[] proc = Process.GetProcessesByName(nameSoftware);
                         if (proc.Length == 0)
                         {
-                            System.Windows.MessageBox.Show("The software has been closed");
+                            System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
                         }
                         else
                         {
                             proc[0].Kill();
-                            System.Windows.MessageBox.Show("The software has been closed");
+                            System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
                         }
                         break;
                     case System.Windows.MessageBoxResult.No:

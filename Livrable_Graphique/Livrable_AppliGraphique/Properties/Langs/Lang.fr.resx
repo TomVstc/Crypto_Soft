@@ -153,6 +153,9 @@
   <data name="confirm" xml:space="preserve">
     <value>Confirmer</value>
   </data>
+  <data name="done" xml:space="preserve">
+    <value>Fait</value>
+  </data>
   <data name="en" xml:space="preserve">
     <value>Anglais</value>
   </data>
@@ -180,8 +183,14 @@
   <data name="NoSoftware" xml:space="preserve">
     <value>Pas de logiciel métier sélectionner</value>
   </data>
+  <data name="openSoftware" xml:space="preserve">
+    <value>Vous devez fermez le logiciel, voulez-vous le fermez ?</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Paramètre</value>
+  </data>
+  <data name="softwareClose" xml:space="preserve">
+    <value>Le logiciel a été fermé</value>
   </data>
   <data name="software_society" xml:space="preserve">
     <value>Logiciel métier</value>

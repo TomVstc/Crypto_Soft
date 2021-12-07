@@ -153,6 +153,9 @@
   <data name="confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
+  <data name="done" xml:space="preserve">
+    <value>Done</value>
+  </data>
   <data name="en" xml:space="preserve">
     <value>English</value>
   </data>
@@ -180,8 +183,14 @@
   <data name="NoSoftware" xml:space="preserve">
     <value>No software society selectionned</value>
   </data>
+  <data name="openSoftware" xml:space="preserve">
+    <value>You have to close your enterprise software if you want to continue the backup. Do you want to close it ?</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="softwareClose" xml:space="preserve">
+    <value>The software has been closed</value>
   </data>
   <data name="software_society" xml:space="preserve">
     <value>Software Society</value>

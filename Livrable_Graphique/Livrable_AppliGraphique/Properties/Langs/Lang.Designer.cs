@@ -169,6 +169,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Done.
+        /// </summary>
+        public static string done {
+            get {
+                return ResourceManager.GetString("done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à English.
         /// </summary>
         public static string en {
@@ -250,6 +259,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à You have to close your enterprise software if you want to continue the backup. Do you want to close it ?.
+        /// </summary>
+        public static string openSoftware {
+            get {
+                return ResourceManager.GetString("openSoftware", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Settings.
         /// </summary>
         public static string settings {
@@ -264,6 +282,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         public static string software_society {
             get {
                 return ResourceManager.GetString("software_society", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The software has been closed.
+        /// </summary>
+        public static string softwareClose {
+            get {
+                return ResourceManager.GetString("softwareClose", resourceCulture);
             }
         }
         
