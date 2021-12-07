@@ -135,6 +135,9 @@
   <data name="chooseDirectory_Source" xml:space="preserve">
     <value>Choisissez le répertoire source</value>
   </data>
+  <data name="chooseExtension" xml:space="preserve">
+    <value>Choisissez l'extension (ex : txt)</value>
+  </data>
   <data name="chooseFile_source" xml:space="preserve">
     <value>Choisissez un fichier</value>
   </data>
@@ -145,10 +148,13 @@
     <value>Choisir le type de sauvegarde</value>
   </data>
   <data name="chooseSoftwareSoeciety" xml:space="preserve">
-    <value>Choisissez votre logiciel métier</value>
+    <value>Entrer le nom votre logiciel métier</value>
   </data>
   <data name="confirm" xml:space="preserve">
     <value>Confirmer</value>
+  </data>
+  <data name="done" xml:space="preserve">
+    <value>Fait</value>
   </data>
   <data name="en" xml:space="preserve">
     <value>Anglais</value>
@@ -158,6 +164,9 @@
   </data>
   <data name="exit" xml:space="preserve">
     <value>Quitter l'application</value>
+  </data>
+  <data name="extension" xml:space="preserve">
+    <value>Extension</value>
   </data>
   <data name="fr" xml:space="preserve">
     <value>Français</value>
@@ -174,8 +183,14 @@
   <data name="NoSoftware" xml:space="preserve">
     <value>Pas de logiciel métier sélectionner</value>
   </data>
+  <data name="openSoftware" xml:space="preserve">
+    <value>Vous devez fermez le logiciel, voulez-vous le fermez ?</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Paramètre</value>
+  </data>
+  <data name="softwareClose" xml:space="preserve">
+    <value>Le logiciel a été fermé</value>
   </data>
   <data name="software_society" xml:space="preserve">
     <value>Logiciel métier</value>

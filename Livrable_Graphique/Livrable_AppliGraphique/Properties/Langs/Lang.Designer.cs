@@ -115,6 +115,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose your extension (ex : txt).
+        /// </summary>
+        public static string chooseExtension {
+            get {
+                return ResourceManager.GetString("chooseExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Choose a file.
         /// </summary>
         public static string chooseFile_source {
@@ -142,7 +151,7 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Choose your society software.
+        ///   Recherche une chaîne localisée semblable à Enter your society software.
         /// </summary>
         public static string chooseSoftwareSoeciety {
             get {
@@ -156,6 +165,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         public static string confirm {
             get {
                 return ResourceManager.GetString("confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Done.
+        /// </summary>
+        public static string done {
+            get {
+                return ResourceManager.GetString("done", resourceCulture);
             }
         }
         
@@ -183,6 +201,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         public static string exit {
             get {
                 return ResourceManager.GetString("exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Extension.
+        /// </summary>
+        public static string extension {
+            get {
+                return ResourceManager.GetString("extension", resourceCulture);
             }
         }
         
@@ -232,6 +259,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à You have to close your enterprise software if you want to continue the backup. Do you want to close it ?.
+        /// </summary>
+        public static string openSoftware {
+            get {
+                return ResourceManager.GetString("openSoftware", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Settings.
         /// </summary>
         public static string settings {
@@ -246,6 +282,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         public static string software_society {
             get {
                 return ResourceManager.GetString("software_society", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The software has been closed.
+        /// </summary>
+        public static string softwareClose {
+            get {
+                return ResourceManager.GetString("softwareClose", resourceCulture);
             }
         }
         

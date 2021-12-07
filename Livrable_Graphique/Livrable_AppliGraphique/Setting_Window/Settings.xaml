@@ -26,6 +26,8 @@
             </Button>
             <Button Name ="Button_Language" Content="{x:Static language:Lang.language}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_Language_Click"/>
             <Button Name ="Button_Entreprise_software" Content="{x:Static language:Lang.software_society}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_Entreprise_software_Click"/>
+            <Button Name ="Button_Extension" Content="{x:Static language:Lang.extension}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_Extension_Click"/>
+
 
         </StackPanel>
 
