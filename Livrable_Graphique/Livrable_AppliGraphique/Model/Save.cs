@@ -6,7 +6,6 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Linq;
-
 using Livrable_AppliGraphique.Setting_Window;
 
 namespace Livrable_AppliGraphique.Model
