@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-D:\CESI\Prog.Sys\Livrables\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\
+D:\CESI\Prog.Sys\Livrables\Livrable_Graphique\Livrable_AppliGraphique\obj\Release\netcoreapp3.1\
 Livrable_AppliGraphique
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1;
 D:\CESI\Prog.Sys\Livrables\Livrable_Graphique\Livrable_AppliGraphique\App.xaml
 8-1633633219
 
