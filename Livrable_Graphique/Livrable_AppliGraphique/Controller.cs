@@ -19,6 +19,7 @@ namespace Livrable_AppliGraphique
         {
         }
 
+        // Function call to update
         public void updateSave(string dirOrFile, string name, string source, string destination)
         {
             Save save = new Save(dirOrFile, name, source, destination);
