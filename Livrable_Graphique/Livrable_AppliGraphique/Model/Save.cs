@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Linq;
 using Livrable_AppliGraphique.Setting_Window;
+using System.Windows;
 
 namespace Livrable_AppliGraphique.Model
 {
@@ -25,12 +26,20 @@ namespace Livrable_AppliGraphique.Model
         private string backupState;
         private int totalFileToCopy;
         private string encryptInfo;
-        private string softwareSocietySave;
+        private string softwareSocietyName;
+        private bool softwareSocietySave;
+        public bool flag;
+
         #endregion
 
         #region SET/GET
         //Creation of set and get
-        public string SoftwareSocietySave
+        public string SoftwareSocietyName
+        {
+            get { return softwareSocietyName; }
+            set { softwareSocietyName = value; }
+        }
+        public bool SoftwareSocietySave
         {
             get { return softwareSocietySave; }
             set { softwareSocietySave = value; }
@@ -107,10 +116,29 @@ namespace Livrable_AppliGraphique.Model
             destination = Destination;
         }
 
+        public void runningSoftware()
+        {
+            while(flag == false)
+            {
+                EnterpriseSoftwareRunning(softwareSocietyName);
+            }
+        }
+
+
+
         public void fileSave()
         {
-            // while (EnterpriseSoftwareRunning() == true) { };
+            //-----------------Test thread------------------------------//
 
+            Thread runningSoftare = new Thread(runningSoftware);
+            runningSoftare.Start();
+
+            //if (ResultSoftwareSociety == true)
+            //{
+            //    MessageBox.Show("pas de logiciel metier");
+            //}
+            //----------------------------------------------------------//
+            flag = false;
             BackupState = "ACTIF";
             string fileName = FileName;
             string fileSource = FileSource;
@@ -213,39 +241,44 @@ namespace Livrable_AppliGraphique.Model
             StateLog stateLog = new StateLog(
                 this.fileName,
                 this.BackupState);
+
+            flag = true;
         }
 
         // ANALYSER CE QUIL Y A DANS PROCESS (si detect calculatrice ou logiciel prosoft alors crash)
         // Detect Software society
         public bool EnterpriseSoftwareRunning(string nameSoftware)
         {
-            if (Process.GetProcessesByName(nameSoftware).Length > 0)
-            {
-                string message = Livrable_AppliGraphique.Properties.Langs.Lang.openSoftware;
-                string caption = "EasySave";
-                var result = System.Windows.MessageBox.Show(message, caption,
-                    System.Windows.MessageBoxButton.YesNo);
-                switch (result)
-                {
-                    case System.Windows.MessageBoxResult.Yes:
-                        Process[] proc = Process.GetProcessesByName(nameSoftware);
-                        if (proc.Length == 0)
-                        {
-                            System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
-                        }
-                        else
-                        {
-                            proc[0].Kill();
-                            System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
-                        }
-                        break;
-                    case System.Windows.MessageBoxResult.No:
-                        EnterpriseSoftwareRunning(nameSoftware);
-                        break;
-                }
-                return true;
 
+                if (Process.GetProcessesByName(nameSoftware).Length > 0)
+                {
+                    string message = Livrable_AppliGraphique.Properties.Langs.Lang.openSoftware;
+                    string caption = "EasySave";
+                    var result = System.Windows.MessageBox.Show(message, caption,
+                        System.Windows.MessageBoxButton.YesNo);
+                    switch (result)
+                    {
+                        case System.Windows.MessageBoxResult.Yes:
+                            Process[] proc = Process.GetProcessesByName(nameSoftware);
+                            if (proc.Length == 0)
+                            {
+                                System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
+                            }
+                            else
+                            {
+                                proc[0].Kill();
+                                System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
+                            }
+                            break;
+                        case System.Windows.MessageBoxResult.No:
+                            EnterpriseSoftwareRunning(nameSoftware);
+                            break;
+                    }
+                    softwareSocietySave = true;
+                    return true;
+                
             }
+            softwareSocietySave = false;
             return false;
         }
 

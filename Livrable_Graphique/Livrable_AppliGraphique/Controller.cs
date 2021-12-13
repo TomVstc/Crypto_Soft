@@ -23,6 +23,7 @@ namespace Livrable_AppliGraphique
         public void updateSave(string dirOrFile, string name, string source, string destination)
         {
             Save save = new Save(dirOrFile, name, source, destination);
+            save.SoftwareSocietyName = softwareSocietyName;
             save.Extension = Extention;
             save.EnterpriseSoftwareRunning(softwareSocietyName);
             save.fileSave();
