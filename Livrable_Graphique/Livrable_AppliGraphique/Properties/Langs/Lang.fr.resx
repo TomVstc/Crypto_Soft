@@ -183,6 +183,9 @@
   <data name="leave" xml:space="preserve">
     <value>Quitter</value>
   </data>
+  <data name="logicielRestart" xml:space="preserve">
+    <value>Votre sauvegarde s'est arrêté à cause du logiciel métier, elle va maintenant redémarrer</value>
+  </data>
   <data name="NoSoftware" xml:space="preserve">
     <value>Pas de logiciel métier sélectionner</value>
   </data>

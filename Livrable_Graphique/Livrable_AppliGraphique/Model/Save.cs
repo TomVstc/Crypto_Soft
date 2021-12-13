@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Linq;
 using Livrable_AppliGraphique.Setting_Window;
+using System.Windows;
 
 namespace Livrable_AppliGraphique.Model
 {
@@ -25,12 +26,20 @@ namespace Livrable_AppliGraphique.Model
         private string backupState;
         private int totalFileToCopy;
         private string encryptInfo;
-        private string softwareSocietySave;
+        private string softwareSocietyName;
+        private bool softwareSocietySave;
+        public bool flag;
+
         #endregion
 
         #region SET/GET
         //Creation of set and get
-        public string SoftwareSocietySave
+        public string SoftwareSocietyName
+        {
+            get { return softwareSocietyName; }
+            set { softwareSocietyName = value; }
+        }
+        public bool SoftwareSocietySave
         {
             get { return softwareSocietySave; }
             set { softwareSocietySave = value; }
@@ -107,15 +116,36 @@ namespace Livrable_AppliGraphique.Model
             destination = Destination;
         }
 
+        public void runningSoftware()
+        {
+            while(flag == false)
+            {
+                //EnterpriseSoftwareRunning(softwareSocietyName);
+                if(EnterpriseSoftwareRunning(softwareSocietyName) == true)
+                {
+                    MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.logicielRestart);
+                    Thread.Sleep(1000);
+                }
+            }
+        }
+
+
         public void fileSave()
         {
-            // while (EnterpriseSoftwareRunning() == true) { };
+            // Thread to check if the sofwate society is open during a save
+            Thread runningSoftare = new Thread(runningSoftware);
+            runningSoftare.Start();
+
+            // Flag useful for software society check
+            flag = false;
 
             BackupState = "ACTIF";
             string fileName = FileName;
             string fileSource = FileSource;
             string fileTarget = Destination;
             string path = fileTarget + @"\" + fileName;
+
+            // Save if the type is a file
             if (Type == "File")
             {
                 DateTime Start = DateTime.Now;
@@ -139,7 +169,7 @@ namespace Livrable_AppliGraphique.Model
                     encryptInfo = "0";
                 }
  
-
+                // Variable for dailyLog
                 FileTransfertTime = (Stop - Start).ToString();
                 TotalFileToCopy = 1;
 
@@ -149,6 +179,8 @@ namespace Livrable_AppliGraphique.Model
 
                 System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.done);
             }
+
+            // Save if the type is a directory
             if (Type == "Directory")
             {
                 DirectoryInfo dir = new DirectoryInfo(fileSource);
@@ -213,39 +245,44 @@ namespace Livrable_AppliGraphique.Model
             StateLog stateLog = new StateLog(
                 this.fileName,
                 this.BackupState);
+
+            flag = true;
         }
 
         // ANALYSER CE QUIL Y A DANS PROCESS (si detect calculatrice ou logiciel prosoft alors crash)
         // Detect Software society
         public bool EnterpriseSoftwareRunning(string nameSoftware)
         {
-            if (Process.GetProcessesByName(nameSoftware).Length > 0)
-            {
-                string message = Livrable_AppliGraphique.Properties.Langs.Lang.openSoftware;
-                string caption = "EasySave";
-                var result = System.Windows.MessageBox.Show(message, caption,
-                    System.Windows.MessageBoxButton.YesNo);
-                switch (result)
-                {
-                    case System.Windows.MessageBoxResult.Yes:
-                        Process[] proc = Process.GetProcessesByName(nameSoftware);
-                        if (proc.Length == 0)
-                        {
-                            System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
-                        }
-                        else
-                        {
-                            proc[0].Kill();
-                            System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
-                        }
-                        break;
-                    case System.Windows.MessageBoxResult.No:
-                        EnterpriseSoftwareRunning(nameSoftware);
-                        break;
-                }
-                return true;
 
+                if (Process.GetProcessesByName(nameSoftware).Length > 0)
+                {
+                    string message = Livrable_AppliGraphique.Properties.Langs.Lang.openSoftware;
+                    string caption = "EasySave";
+                    var result = System.Windows.MessageBox.Show(message, caption,
+                        System.Windows.MessageBoxButton.YesNo);
+                    switch (result)
+                    {
+                        case System.Windows.MessageBoxResult.Yes:
+                            Process[] proc = Process.GetProcessesByName(nameSoftware);
+                            if (proc.Length == 0)
+                            {
+                                System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
+                            }
+                            else
+                            {
+                                proc[0].Kill();
+                                System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
+                            }
+                            break;
+                        case System.Windows.MessageBoxResult.No:
+                            EnterpriseSoftwareRunning(nameSoftware);
+                            break;
+                    }
+                    softwareSocietySave = true;
+                    return true;
+                
             }
+            softwareSocietySave = false;
             return false;
         }
 
@@ -254,11 +291,6 @@ namespace Livrable_AppliGraphique.Model
             StreamReader sr = new StreamReader(pathFileToEncrypt); //fichier à crypter
             StreamWriter sw = new StreamWriter(pathTargetFile); //fichier où écrire
             Process crypt = new Process(); //logiciel cryptosoft
-
-            //recup du chemin vers l'exécutable de cryptosoft adapté à chaque PC
-            //string fullPath = Environment.CurrentDirectory;
-            //string halfPath = fullPath.Substring(0, 133);
-            //string path = "Cryptage.exe";
 
             crypt.StartInfo.FileName = @"D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Cryptage\Cryptage.exe";
             crypt.StartInfo.UseShellExecute = false;

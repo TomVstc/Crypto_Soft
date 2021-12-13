@@ -259,6 +259,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Your save has been stopped due to software society. It&apos;s restating.
+        /// </summary>
+        public static string logicielRestart {
+            get {
+                return ResourceManager.GetString("logicielRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à No software society selectionned.
         /// </summary>
         public static string NoSoftware {
