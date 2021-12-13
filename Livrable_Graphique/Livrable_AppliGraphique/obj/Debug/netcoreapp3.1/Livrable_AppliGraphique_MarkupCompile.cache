@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\CESI\Prog.Sys\Livrables\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\
+D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\
 Livrable_AppliGraphique
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-D:\CESI\Prog.Sys\Livrables\Livrable_Graphique\Livrable_AppliGraphique\App.xaml
+D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\App.xaml
 8-1633633219
 
 17-651499759
-199-1336183941
+201-60832265
 MainWindow.xaml;Save_Window\DirectorySaveWindow.xaml;Save_Window\FileSaveWindow.xaml;Save_Window\SaveWindow.xaml;Setting_Window\ExtensionWindow.xaml;Setting_Window\SelectLanguage.xaml;Setting_Window\Settings.xaml;Setting_Window\SoftwareSocietyWindow.xaml;
 
-True
+False
 
