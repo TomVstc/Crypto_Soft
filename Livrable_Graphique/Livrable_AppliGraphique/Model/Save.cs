@@ -29,6 +29,7 @@ namespace Livrable_AppliGraphique.Model
         private string softwareSocietyName;
         private bool softwareSocietySave;
         public bool flag;
+        public bool flag2;
 
         #endregion
 
@@ -124,6 +125,7 @@ namespace Livrable_AppliGraphique.Model
                 if(EnterpriseSoftwareRunning(softwareSocietyName) == true)
                 {
                     MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.logicielRestart);
+                    flag2 = true;
                     Thread.Sleep(1000);
                 }
             }
@@ -254,19 +256,19 @@ namespace Livrable_AppliGraphique.Model
         public bool EnterpriseSoftwareRunning(string nameSoftware)
         {
 
-                if (Process.GetProcessesByName(nameSoftware).Length > 0)
+            if (Process.GetProcessesByName(nameSoftware).Length > 0)
+            {
+                string message = Livrable_AppliGraphique.Properties.Langs.Lang.openSoftware;
+                string caption = "EasySave";
+                var result = System.Windows.MessageBox.Show(message, caption,
+                System.Windows.MessageBoxButton.YesNo);
+                switch (result)
                 {
-                    string message = Livrable_AppliGraphique.Properties.Langs.Lang.openSoftware;
-                    string caption = "EasySave";
-                    var result = System.Windows.MessageBox.Show(message, caption,
-                        System.Windows.MessageBoxButton.YesNo);
-                    switch (result)
-                    {
-                        case System.Windows.MessageBoxResult.Yes:
-                            Process[] proc = Process.GetProcessesByName(nameSoftware);
-                            if (proc.Length == 0)
-                            {
-                                System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
+                    case System.Windows.MessageBoxResult.Yes:
+                    Process[] proc = Process.GetProcessesByName(nameSoftware);
+                    if (proc.Length == 0)
+                       {
+                         System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
                             }
                             else
                             {
