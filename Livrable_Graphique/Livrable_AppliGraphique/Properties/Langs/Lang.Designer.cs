@@ -61,6 +61,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à An instance is already running.
+        /// </summary>
+        public static string appliRunning {
+            get {
+                return ResourceManager.GetString("appliRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Directory Save.
         /// </summary>
         public static string Button_Directory_Save {

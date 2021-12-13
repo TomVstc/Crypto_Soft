@@ -29,7 +29,7 @@ namespace Livrable_AppliGraphique
             Process[] process = Process.GetProcessesByName("Livrable_AppliGraphique");
             if(process.Length != 1)
             {
-                MessageBox.Show("Application déjà en cours");
+                MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.appliRunning);
                 Environment.Exit(0);
             }
 

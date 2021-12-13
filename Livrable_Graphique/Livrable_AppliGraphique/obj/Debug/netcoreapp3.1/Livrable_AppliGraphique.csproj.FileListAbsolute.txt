@@ -39,3 +39,4 @@ D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\Setting_Window\ExtensionWindow.g.cs
 D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\Setting_Window\ExtensionWindow.baml
+D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Livrable_Graphique\Livrable_AppliGraphique\obj\Debug\netcoreapp3.1\Livrable_AppliGraphique.csproj.AssemblyReference.cache

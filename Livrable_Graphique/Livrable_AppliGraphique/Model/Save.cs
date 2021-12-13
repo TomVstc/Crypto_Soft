@@ -25,10 +25,16 @@ namespace Livrable_AppliGraphique.Model
         private string backupState;
         private int totalFileToCopy;
         private string encryptInfo;
+        private string softwareSocietySave;
         #endregion
 
         #region SET/GET
         //Creation of set and get
+        public string SoftwareSocietySave
+        {
+            get { return softwareSocietySave; }
+            set { softwareSocietySave = value; }
+        }
         public string FileName
         {
             get { return fileName; }
@@ -104,7 +110,6 @@ namespace Livrable_AppliGraphique.Model
         public void fileSave()
         {
             // while (EnterpriseSoftwareRunning() == true) { };
-
 
             BackupState = "ACTIF";
             string fileName = FileName;
