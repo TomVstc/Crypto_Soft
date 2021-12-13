@@ -120,30 +120,32 @@ namespace Livrable_AppliGraphique.Model
         {
             while(flag == false)
             {
-                EnterpriseSoftwareRunning(softwareSocietyName);
+                //EnterpriseSoftwareRunning(softwareSocietyName);
+                if(EnterpriseSoftwareRunning(softwareSocietyName) == true)
+                {
+                    MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.logicielRestart);
+                    Thread.Sleep(1000);
+                }
             }
         }
 
 
-
         public void fileSave()
         {
-            //-----------------Test thread------------------------------//
-
+            // Thread to check if the sofwate society is open during a save
             Thread runningSoftare = new Thread(runningSoftware);
             runningSoftare.Start();
 
-            //if (ResultSoftwareSociety == true)
-            //{
-            //    MessageBox.Show("pas de logiciel metier");
-            //}
-            //----------------------------------------------------------//
+            // Flag useful for software society check
             flag = false;
+
             BackupState = "ACTIF";
             string fileName = FileName;
             string fileSource = FileSource;
             string fileTarget = Destination;
             string path = fileTarget + @"\" + fileName;
+
+            // Save if the type is a file
             if (Type == "File")
             {
                 DateTime Start = DateTime.Now;
@@ -167,7 +169,7 @@ namespace Livrable_AppliGraphique.Model
                     encryptInfo = "0";
                 }
  
-
+                // Variable for dailyLog
                 FileTransfertTime = (Stop - Start).ToString();
                 TotalFileToCopy = 1;
 
@@ -177,6 +179,8 @@ namespace Livrable_AppliGraphique.Model
 
                 System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.done);
             }
+
+            // Save if the type is a directory
             if (Type == "Directory")
             {
                 DirectoryInfo dir = new DirectoryInfo(fileSource);
@@ -287,11 +291,6 @@ namespace Livrable_AppliGraphique.Model
             StreamReader sr = new StreamReader(pathFileToEncrypt); //fichier à crypter
             StreamWriter sw = new StreamWriter(pathTargetFile); //fichier où écrire
             Process crypt = new Process(); //logiciel cryptosoft
-
-            //recup du chemin vers l'exécutable de cryptosoft adapté à chaque PC
-            //string fullPath = Environment.CurrentDirectory;
-            //string halfPath = fullPath.Substring(0, 133);
-            //string path = "Cryptage.exe";
 
             crypt.StartInfo.FileName = @"D:\Code\Projet_Programmation_Systeme\Programmation_Systeme_G1\Cryptage\Cryptage.exe";
             crypt.StartInfo.UseShellExecute = false;

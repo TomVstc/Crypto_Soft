@@ -183,6 +183,9 @@
   <data name="leave" xml:space="preserve">
     <value>Leave</value>
   </data>
+  <data name="logicielRestart" xml:space="preserve">
+    <value>Your save has been stopped due to software society. It's restating</value>
+  </data>
   <data name="NoSoftware" xml:space="preserve">
     <value>No software society selectionned</value>
   </data>
