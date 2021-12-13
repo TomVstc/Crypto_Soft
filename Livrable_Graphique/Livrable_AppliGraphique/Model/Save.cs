@@ -28,8 +28,8 @@ namespace Livrable_AppliGraphique.Model
         private string encryptInfo;
         private string softwareSocietyName;
         private bool softwareSocietySave;
-        public bool flag;
-        public bool flag2;
+        public Thread threadSave { get; set; }
+        public string flag { get; set; }
 
         #endregion
 
@@ -109,6 +109,8 @@ namespace Livrable_AppliGraphique.Model
 
         #endregion
 
+        private static ManualResetEvent mre = new ManualResetEvent(false);
+
         public Save(string type, string Name, string FileSource, string Destination)
         {
             Type = type;
@@ -119,15 +121,19 @@ namespace Livrable_AppliGraphique.Model
 
         public void runningSoftware()
         {
-            while(flag == false)
+            while (flag == "debut")
             {
-                //EnterpriseSoftwareRunning(softwareSocietyName);
-                if(EnterpriseSoftwareRunning(softwareSocietyName) == true)
+                if (Process.GetProcessesByName(softwareSocietyName).Length > 0)
                 {
-                    MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.logicielRestart);
-                    flag2 = true;
-                    Thread.Sleep(1000);
+                    //MessageBox.Show(InterfaceGraphiqueL2.Properties.Langs.Lang.backupStopped);
+                    MessageBox.Show("veuillez fermer logi metier car la c'est en pause");
                 }
+                else
+                {
+                    //si le logiciel métier n'est pas allumé, on skip le waitOne() de createBackup
+                    mre.Set();
+                }
+
             }
         }
 
@@ -135,11 +141,10 @@ namespace Livrable_AppliGraphique.Model
         public void fileSave()
         {
             // Thread to check if the sofwate society is open during a save
-            Thread runningSoftare = new Thread(runningSoftware);
-            runningSoftare.Start();
+            Thread softwareSocietyThread = new Thread(runningSoftware);
+            softwareSocietyThread.Start();
 
-            // Flag useful for software society check
-            flag = false;
+            flag = "debut";
 
             BackupState = "ACTIF";
             string fileName = FileName;
@@ -170,7 +175,7 @@ namespace Livrable_AppliGraphique.Model
                 {
                     encryptInfo = "0";
                 }
- 
+
                 // Variable for dailyLog
                 FileTransfertTime = (Stop - Start).ToString();
                 TotalFileToCopy = 1;
@@ -199,6 +204,8 @@ namespace Livrable_AppliGraphique.Model
                 foreach (FileInfo file in files)
                 {
                     FileSize += file.Length;
+                    mre.WaitOne();
+                    mre.Reset();
                     file.CopyTo(path + @"\" + file.Name, false);
                     TotalFileToCopy++;
 
@@ -248,7 +255,7 @@ namespace Livrable_AppliGraphique.Model
                 this.fileName,
                 this.BackupState);
 
-            flag = true;
+            flag = "fin";
         }
 
         // ANALYSER CE QUIL Y A DANS PROCESS (si detect calculatrice ou logiciel prosoft alors crash)
@@ -267,21 +274,21 @@ namespace Livrable_AppliGraphique.Model
                     case System.Windows.MessageBoxResult.Yes:
                     Process[] proc = Process.GetProcessesByName(nameSoftware);
                     if (proc.Length == 0)
-                       {
-                         System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
-                            }
-                            else
-                            {
-                                proc[0].Kill();
-                                System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
-                            }
-                            break;
-                        case System.Windows.MessageBoxResult.No:
-                            EnterpriseSoftwareRunning(nameSoftware);
-                            break;
+                    {
+                        System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
                     }
-                    softwareSocietySave = true;
-                    return true;
+                    else
+                    {
+                         proc[0].Kill();
+                         System.Windows.MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareClose);
+                    }
+                    break;
+                    case System.Windows.MessageBoxResult.No:
+                         EnterpriseSoftwareRunning(nameSoftware);
+                    break;
+                }
+                softwareSocietySave = true;
+                return true;
                 
             }
             softwareSocietySave = false;
