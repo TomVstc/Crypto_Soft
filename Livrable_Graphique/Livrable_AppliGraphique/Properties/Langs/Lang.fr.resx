@@ -192,6 +192,9 @@
   <data name="openSoftware" xml:space="preserve">
     <value>Vous devez fermez le logiciel, voulez-vous le fermez ?</value>
   </data>
+  <data name="saveProgression" xml:space="preserve">
+    <value>Progression de la sauvegarde</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Paramètre</value>
   </data>

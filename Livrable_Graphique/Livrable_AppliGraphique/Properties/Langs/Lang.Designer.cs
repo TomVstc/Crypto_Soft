@@ -286,6 +286,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Save Progression.
+        /// </summary>
+        public static string saveProgression {
+            get {
+                return ResourceManager.GetString("saveProgression", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Settings.
         /// </summary>
         public static string settings {

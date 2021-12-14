@@ -192,6 +192,9 @@
   <data name="openSoftware" xml:space="preserve">
     <value>You have to close your enterprise software if you want to continue the backup. Do you want to close it ?</value>
   </data>
+  <data name="saveProgression" xml:space="preserve">
+    <value>Save Progression</value>
+  </data>
   <data name="settings" xml:space="preserve">
     <value>Settings</value>
   </data>

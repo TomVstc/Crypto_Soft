@@ -28,6 +28,7 @@ namespace Livrable_AppliGraphique.Model
         private string encryptInfo;
         private string softwareSocietyName;
         private bool softwareSocietySave;
+        public bool stopSave { get; set; }
         public Thread threadSave { get; set; }
         public string flag { get; set; }
 
@@ -109,14 +110,22 @@ namespace Livrable_AppliGraphique.Model
 
         #endregion
 
+        // Event to manage the save (Stop/Restart/Exit)
         private static ManualResetEvent mre = new ManualResetEvent(false);
-
+        private static ManualResetEvent mre2 = new ManualResetEvent(false);
+        
         public Save(string type, string Name, string FileSource, string Destination)
         {
             Type = type;
             FileName = Name;
             fileSource = FileSource;
             destination = Destination;
+        }
+
+        public void saveThread()
+        {
+            Thread threadSave = new Thread(fileSave);
+            threadSave.Start();
         }
 
         // Function to check is the society software is running during a save
@@ -130,21 +139,46 @@ namespace Livrable_AppliGraphique.Model
                 }
                 else
                 {
-                    //si le logiciel métier n'est pas allumé, on skip le waitOne() de createBackup
+                    // Si le logiciel métier n'est pas allumé, on skip le waitOne() de createBackup
+                    mre2.Set();
+                }
+            }
+        }
+
+        // Function to check if the save has to be stopped
+        public void checkStopSave()
+        {
+            while (flag == "debut")
+            {
+                if (stopSave == true)
+                {
+                    if(stopSave == false)
+                    {
+                        mre.Set();
+                    }
+                }
+                else
+                {
+                    // Si le logiciel métier n'est pas allumé, on skip le waitOne() de createBackup
                     mre.Set();
                 }
-
             }
+
         }
 
         // Function to make a save
         public void fileSave()
         {
+            // Thread to check if software Society is stopped by the user
+            Thread threadCheckStopSave = new Thread(checkStopSave);
+            threadCheckStopSave.Start();
+
             // Thread to check if the sofwate society is open during a save
             Thread softwareSocietyThread = new Thread(runningSoftware);
             softwareSocietyThread.Start();
 
             flag = "debut";
+            stopSave = false;
 
             BackupState = "ACTIF";
             string fileName = FileName;
@@ -206,6 +240,8 @@ namespace Livrable_AppliGraphique.Model
                     FileSize += file.Length;
                     mre.WaitOne();
                     mre.Reset();
+                    mre2.WaitOne();
+                    mre2.Reset();
                     file.CopyTo(path + @"\" + file.Name, false);
                     TotalFileToCopy++;
 
