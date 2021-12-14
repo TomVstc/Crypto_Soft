@@ -313,6 +313,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Can you close the software society, the save is stopped.
+        /// </summary>
+        public static string softwareSocietyRunning {
+            get {
+                return ResourceManager.GetString("softwareSocietyRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Welcome on EasySave Application.
         /// </summary>
         public static string welcome {

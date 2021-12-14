@@ -119,14 +119,14 @@ namespace Livrable_AppliGraphique.Model
             destination = Destination;
         }
 
+        // Function to check is the society software is running during a save
         public void runningSoftware()
         {
             while (flag == "debut")
             {
                 if (Process.GetProcessesByName(softwareSocietyName).Length > 0)
                 {
-                    //MessageBox.Show(InterfaceGraphiqueL2.Properties.Langs.Lang.backupStopped);
-                    MessageBox.Show("veuillez fermer logi metier car la c'est en pause");
+                    MessageBox.Show(Livrable_AppliGraphique.Properties.Langs.Lang.softwareSocietyRunning);
                 }
                 else
                 {
@@ -137,7 +137,7 @@ namespace Livrable_AppliGraphique.Model
             }
         }
 
-
+        // Function to make a save
         public void fileSave()
         {
             // Thread to check if the sofwate society is open during a save
@@ -295,6 +295,7 @@ namespace Livrable_AppliGraphique.Model
             return false;
         }
 
+        // Function to encrypt data
         public void encrypt(string pathFileToEncrypt, string pathTargetFile)
         {
             StreamReader sr = new StreamReader(pathFileToEncrypt); //fichier à crypter
