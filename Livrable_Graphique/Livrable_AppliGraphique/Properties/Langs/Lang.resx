@@ -198,6 +198,9 @@
   <data name="softwareClose" xml:space="preserve">
     <value>The software has been closed</value>
   </data>
+  <data name="softwareSocietyRunning" xml:space="preserve">
+    <value>Can you close the software society, the save is stopped</value>
+  </data>
   <data name="software_society" xml:space="preserve">
     <value>Software Society</value>
   </data>

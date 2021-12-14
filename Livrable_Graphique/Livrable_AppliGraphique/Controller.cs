@@ -13,7 +13,6 @@ namespace Livrable_AppliGraphique
         private static Controller instance = null;
         public string softwareSocietyName;
         public string Extention;
-        // Semaphore -> Limit the number of Thread
 
         public Controller()
         {
