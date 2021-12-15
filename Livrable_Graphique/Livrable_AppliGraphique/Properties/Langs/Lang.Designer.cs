@@ -214,6 +214,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Exit.
+        /// </summary>
+        public static string exitSave {
+            get {
+                return ResourceManager.GetString("exitSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Extension.
         /// </summary>
         public static string extension {
@@ -259,6 +268,15 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Loading.
+        /// </summary>
+        public static string loadingSave {
+            get {
+                return ResourceManager.GetString("loadingSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Your save has been stopped due to software society. It&apos;s restating.
         /// </summary>
         public static string logicielRestart {
@@ -282,6 +300,33 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         public static string openSoftware {
             get {
                 return ResourceManager.GetString("openSoftware", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Restart.
+        /// </summary>
+        public static string restart {
+            get {
+                return ResourceManager.GetString("restart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Save cancel, close the window.
+        /// </summary>
+        public static string saveExit {
+            get {
+                return ResourceManager.GetString("saveExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Save Progression.
+        /// </summary>
+        public static string saveProgression {
+            get {
+                return ResourceManager.GetString("saveProgression", resourceCulture);
             }
         }
         
@@ -318,6 +363,33 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         public static string softwareSocietyRunning {
             get {
                 return ResourceManager.GetString("softwareSocietyRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à State of your save : .
+        /// </summary>
+        public static string stateSave {
+            get {
+                return ResourceManager.GetString("stateSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Stop.
+        /// </summary>
+        public static string stop {
+            get {
+                return ResourceManager.GetString("stop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Stopped.
+        /// </summary>
+        public static string stopSave {
+            get {
+                return ResourceManager.GetString("stopSave", resourceCulture);
             }
         }
         

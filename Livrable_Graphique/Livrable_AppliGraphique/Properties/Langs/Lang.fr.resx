@@ -168,6 +168,9 @@
   <data name="exit" xml:space="preserve">
     <value>Quitter l'application</value>
   </data>
+  <data name="exitSave" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
   <data name="extension" xml:space="preserve">
     <value>Extension</value>
   </data>
@@ -183,6 +186,9 @@
   <data name="leave" xml:space="preserve">
     <value>Quitter</value>
   </data>
+  <data name="loadingSave" xml:space="preserve">
+    <value>En cours</value>
+  </data>
   <data name="logicielRestart" xml:space="preserve">
     <value>Votre sauvegarde s'est arrêté à cause du logiciel métier, elle va maintenant redémarrer</value>
   </data>
@@ -191,6 +197,15 @@
   </data>
   <data name="openSoftware" xml:space="preserve">
     <value>Vous devez fermez le logiciel, voulez-vous le fermez ?</value>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>Redémarrer</value>
+  </data>
+  <data name="saveExit" xml:space="preserve">
+    <value>Sauvegarde annulé veuillez quitter la fenêtre</value>
+  </data>
+  <data name="saveProgression" xml:space="preserve">
+    <value>Progression de la sauvegarde</value>
   </data>
   <data name="settings" xml:space="preserve">
     <value>Paramètre</value>
@@ -203,6 +218,15 @@
   </data>
   <data name="software_society" xml:space="preserve">
     <value>Logiciel métier</value>
+  </data>
+  <data name="stateSave" xml:space="preserve">
+    <value>Etat de la sauvegarde : </value>
+  </data>
+  <data name="stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="stopSave" xml:space="preserve">
+    <value>Stop</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>Bienvenu sur l'application EasySave</value>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Livrable_AppliGraphique.Save_Window;
 
 namespace Livrable_AppliGraphique.Save_Window
 {
@@ -129,6 +130,10 @@ namespace Livrable_AppliGraphique.Save_Window
             directorySaveWindow.name = Text_Box_Name.Text;
             directorySaveWindow.fileSource = Name_Directory_Source_Destination.Text;
             directorySaveWindow.destination = Name_Directory_Destination.Text;
+
+            ServerManagerWindow manager = new ServerManagerWindow(Controller);
+            manager.Show();
+            Controller.serverManager = manager;
             Controller.updateSave(directorySaveWindow.dirOrFile, directorySaveWindow.name, directorySaveWindow.fileSource, directorySaveWindow.destination);
         }
     }

@@ -8,6 +8,7 @@ using System.Threading;
 using System.Linq;
 using Livrable_AppliGraphique.Setting_Window;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Livrable_AppliGraphique.Model
 {
@@ -26,11 +27,13 @@ namespace Livrable_AppliGraphique.Model
         private string backupState;
         private int totalFileToCopy;
         private string encryptInfo;
-        private string softwareSocietyName;
+        private static string softwareSocietyName;
         private bool softwareSocietySave;
-        public Thread threadSave { get; set; }
+        public bool stopSave { get; set; }
+        //public Thread threadSave { get; set; }
         public string flag { get; set; }
-
+        public bool exitSave { get; set; }
+        public ServerManagerWindow serverManager { get; set; }
         #endregion
 
         #region SET/GET
@@ -109,8 +112,12 @@ namespace Livrable_AppliGraphique.Model
 
         #endregion
 
-        private static ManualResetEvent mre = new ManualResetEvent(false);
 
+
+        // Event to manage the save (Stop/Restart/Exit)
+        private static ManualResetEvent mre = new ManualResetEvent(false);
+        private static ManualResetEvent mre2 = new ManualResetEvent(false);
+        
         public Save(string type, string Name, string FileSource, string Destination)
         {
             Type = type;
@@ -119,8 +126,15 @@ namespace Livrable_AppliGraphique.Model
             destination = Destination;
         }
 
-        // Function to check is the society software is running during a save
-        public void runningSoftware()
+
+        public void saveThread()
+        {
+            Thread threadSave = new Thread(fileSave);
+            threadSave.Start();
+        }
+
+        // Function to check is the society software is running during a save 
+        public void runningSoftware(Thread thread)
         {
             while (flag == "debut")
             {
@@ -130,21 +144,55 @@ namespace Livrable_AppliGraphique.Model
                 }
                 else
                 {
-                    //si le logiciel métier n'est pas allumé, on skip le waitOne() de createBackup
+                    // Si le logiciel métier n'est pas allumé, on skip le waitOne() de createBackup
+                    mre2.Set();
+                }
+                if (stopSave == true)
+                {
+                    if (stopSave == false)
+                    {
+                        mre.Set();
+                    }
+                }
+                else
+                {
+                    // Si le logiciel métier n'est pas allumé, on skip le waitOne() de createBackup
                     mre.Set();
                 }
+                if(exitSave == true)
+                {
+                    ////Environment.Exit(0);
+                    //thread.Interrupt();
+                    //Thread.CurrentThread.Interrupt();
+                    //MessageBox.Show("Save arrêté");
+                    //exitSave = false;
+                    new Thread(() =>
+                    {
 
+                        Thread.CurrentThread.IsBackground = false;
+                        Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, (SendOrPostCallback)delegate {
+
+                            serverManager.Close();
+
+                        }, null);
+                    }).Start();
+                }
             }
         }
 
         // Function to make a save
         public void fileSave()
         {
+            // Thread to check if software Society is stopped by the user
+            //Thread threadCheckStopSave = new Thread(checkStopSave);
+            //threadCheckStopSave.Start();
+
             // Thread to check if the sofwate society is open during a save
-            Thread softwareSocietyThread = new Thread(runningSoftware);
+            Thread softwareSocietyThread = new Thread(() => runningSoftware(Thread.CurrentThread));
             softwareSocietyThread.Start();
 
             flag = "debut";
+            stopSave = false;
 
             BackupState = "ACTIF";
             string fileName = FileName;
@@ -201,11 +249,17 @@ namespace Livrable_AppliGraphique.Model
                 Time = Start;
                 DateTime startCrypt = DateTime.Now;
 
+                // Block useful for progress bar
+                int numberFile = files.Length; // Number of file
+                
+
                 foreach (FileInfo file in files)
                 {
                     FileSize += file.Length;
                     mre.WaitOne();
                     mre.Reset();
+                    mre2.WaitOne();
+                    mre2.Reset();
                     file.CopyTo(path + @"\" + file.Name, false);
                     TotalFileToCopy++;
 
@@ -216,7 +270,24 @@ namespace Livrable_AppliGraphique.Model
                     {
                         encrypt(fileSource + @"\" + file.Name, test);
                     }
+
+                    float pourcentage = (100 * TotalFileToCopy) / numberFile;
+
+                    // Progress bar
+                    new Thread(() =>
+                    {
+
+                        Thread.CurrentThread.IsBackground = false;
+                        Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, (SendOrPostCallback)delegate {
+
+                            serverManager.progress_barre.Value = pourcentage;
+                            serverManager.pourcentageLaben.Content = pourcentage + "%";
+
+                        }, null);
+                    }).Start();
+
                 }
+
                 DateTime stopCrypt = DateTime.Now;
                 encryptInfo = (stopCrypt - startCrypt).ToString();
 
@@ -254,6 +325,18 @@ namespace Livrable_AppliGraphique.Model
             StateLog stateLog = new StateLog(
                 this.fileName,
                 this.BackupState);
+
+            // Coupe le servManager
+            new Thread(() =>
+            {
+
+                Thread.CurrentThread.IsBackground = false;
+                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, (SendOrPostCallback)delegate {
+
+                    serverManager.Close();
+
+                }, null);
+            }).Start();
 
             flag = "fin";
         }
