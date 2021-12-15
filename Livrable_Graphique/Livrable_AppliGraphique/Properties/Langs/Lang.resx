@@ -168,6 +168,9 @@
   <data name="exit" xml:space="preserve">
     <value>Exit App</value>
   </data>
+  <data name="exitSave" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="extension" xml:space="preserve">
     <value>Extension</value>
   </data>
@@ -183,6 +186,9 @@
   <data name="leave" xml:space="preserve">
     <value>Leave</value>
   </data>
+  <data name="loadingSave" xml:space="preserve">
+    <value>Loading</value>
+  </data>
   <data name="logicielRestart" xml:space="preserve">
     <value>Your save has been stopped due to software society. It's restating</value>
   </data>
@@ -191,6 +197,12 @@
   </data>
   <data name="openSoftware" xml:space="preserve">
     <value>You have to close your enterprise software if you want to continue the backup. Do you want to close it ?</value>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="saveExit" xml:space="preserve">
+    <value>Save cancel, close the window</value>
   </data>
   <data name="saveProgression" xml:space="preserve">
     <value>Save Progression</value>
@@ -206,6 +218,15 @@
   </data>
   <data name="software_society" xml:space="preserve">
     <value>Software Society</value>
+  </data>
+  <data name="stateSave" xml:space="preserve">
+    <value>State of your save : </value>
+  </data>
+  <data name="stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="stopSave" xml:space="preserve">
+    <value>Stopped</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>Welcome on EasySave Application</value>

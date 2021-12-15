@@ -30,11 +30,19 @@ namespace Livrable_AppliGraphique.Save_Window
         private void Break_Button_Click(object sender, RoutedEventArgs e)
         {
             Controller.stateSave = true;
+            stateSave.Content = Livrable_AppliGraphique.Properties.Langs.Lang.stopSave;
         }
 
         private void Restart_Button_Click(object sender, RoutedEventArgs e)
         {
             Controller.stateSave = false;
+            stateSave.Content = Livrable_AppliGraphique.Properties.Langs.Lang.loadingSave;
+        }
+
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Controller.stopSave = true;
+            stateSave.Content = Livrable_AppliGraphique.Properties.Langs.Lang.saveExit;
         }
     }
 }

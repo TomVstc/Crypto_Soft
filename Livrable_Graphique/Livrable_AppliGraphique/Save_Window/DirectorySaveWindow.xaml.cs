@@ -131,8 +131,9 @@ namespace Livrable_AppliGraphique.Save_Window
             directorySaveWindow.fileSource = Name_Directory_Source_Destination.Text;
             directorySaveWindow.destination = Name_Directory_Destination.Text;
 
-            ServerManagerWindow manager = new ServerManagerWindow(this.Controller);
+            ServerManagerWindow manager = new ServerManagerWindow(Controller);
             manager.Show();
+            Controller.serverManager = manager;
             Controller.updateSave(directorySaveWindow.dirOrFile, directorySaveWindow.name, directorySaveWindow.fileSource, directorySaveWindow.destination);
         }
     }

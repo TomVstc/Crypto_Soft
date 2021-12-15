@@ -8,12 +8,15 @@
         mc:Ignorable="d"
         Title="ServerManagerWindow" Height="450" Width="800">
     <Grid>
-        <ProgressBar Margin="0,50,0,313" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Width="603"/>
-        <Label Name="SaveProgressionWindow" Content="{x:Static language:Lang.saveProgression}"/>
-        <Button Name="Break_Button" Content="Pause" HorizontalAlignment="Left" Margin="98,217,0,0" VerticalAlignment="Top" Height="69" Width="112" Click="Break_Button_Click"/>
-        <Button Name ="Restart_Button" Content="Restart" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Height="69" Width="112" Click="Restart_Button_Click"/>
-        <Button Name="Exit_Button" Content="Exit" HorizontalAlignment="Left" Margin="598,217,0,0" VerticalAlignment="Top" Height="69" Width="112"/>
+        <ProgressBar Name ="progress_barre" Margin="0,50,0,313" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Width="603" />
 
+        <Label Name="SaveProgressionWindow" Content="{x:Static language:Lang.saveProgression}"/>
+
+        <Button Name="Break_Button" Content="{x:Static language:Lang.stop}" HorizontalAlignment="Left" Margin="98,217,0,0" VerticalAlignment="Top" Height="69" Width="112" Click="Break_Button_Click"/>
+        <Button Name ="Restart_Button" Content="{x:Static language:Lang.restart}" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Height="69" Width="112" Click="Restart_Button_Click"/>
+        <Button Name="Exit_Button" Content="{x:Static language:Lang.exitSave}" HorizontalAlignment="Left" Margin="598,217,0,0" VerticalAlignment="Top" Height="69" Width="112" Click="Exit_Button_Click"/>
+        <Label Name="stateSave" Content="{x:Static language:Lang.loadingSave}" HorizontalAlignment="Left" Margin="245,149,0,0" VerticalAlignment="Top" Width="339"/>
+        <Label Content="{x:Static language:Lang.stateSave}" HorizontalAlignment="Left" Margin="98,149,0,0" VerticalAlignment="Top" Width="134"/>
 
     </Grid>
 </Window>

@@ -12,10 +12,12 @@ namespace Livrable_AppliGraphique
     {
         private static Save save;
         private static Controller instance = null;
+        public ServerManagerWindow serverManager { get; set; }
         public string softwareSocietyName;
         public string Extention;
         public bool stateSave;
         public bool flag;
+        public bool stopSave;
 
         public Controller()
         {
@@ -33,14 +35,22 @@ namespace Livrable_AppliGraphique
                 {
                     save.stopSave = false;
                 }
+                if(stopSave == true)
+                {
+                    save.exitSave = true;
+                }
             }
         }
+
+        //public void launchSave()
 
         // Function call to update
         public void updateSave(string dirOrFile, string name, string source, string destination)
         {
             flag = false;
             save = new Save(dirOrFile, name, source, destination);
+            save.serverManager = serverManager;
+
             save.SoftwareSocietyName = softwareSocietyName;
             save.Extension = Extention;
             save.EnterpriseSoftwareRunning(softwareSocietyName);
@@ -48,6 +58,7 @@ namespace Livrable_AppliGraphique
             Thread updateStateSave = new Thread(checkStateSave);
             updateStateSave.Start();
 
+            //Thread saveThread = new Thread();
             save.saveThread(); // backup thread
 
             flag = true;
