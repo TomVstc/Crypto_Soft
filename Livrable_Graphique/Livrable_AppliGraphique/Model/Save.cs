@@ -34,6 +34,7 @@ namespace Livrable_AppliGraphique.Model
         public string flag { get; set; }
         public bool exitSave { get; set; }
         public ServerManagerWindow serverManager { get; set; }
+        public string priorityFile { get; set; }
         #endregion
 
         #region SET/GET
@@ -252,6 +253,23 @@ namespace Livrable_AppliGraphique.Model
                 // Block useful for progress bar
                 int numberFile = files.Length; // Number of file
                 
+                // Function to check priority of the file to copy
+                if(priorityFile != null)
+                {
+                    for(int i = 0; i < files.Length; i++)
+                    {
+                        string recupExtention = files[i].Name.Split(".").Last();
+                        if (recupExtention == priorityFile)
+                        {
+                            for(int j = i; j > 0; j--)
+                            {
+                                FileInfo temp = files[j];
+                                files[j] = files[j - 1];
+                                files[j - 1] = temp;
+                            }
+                        }
+                    }
+                }
 
                 foreach (FileInfo file in files)
                 {
@@ -282,6 +300,10 @@ namespace Livrable_AppliGraphique.Model
 
                             serverManager.progress_barre.Value = pourcentage;
                             serverManager.pourcentageLaben.Content = pourcentage + "%";
+                            if(serverManager.pourcentageLaben.Content.ToString() == "100%")
+                            {
+                                serverManager.stateSave.Content = Livrable_AppliGraphique.Properties.Langs.Lang.saveEnd;
+                            }
 
                         }, null);
                     }).Start();

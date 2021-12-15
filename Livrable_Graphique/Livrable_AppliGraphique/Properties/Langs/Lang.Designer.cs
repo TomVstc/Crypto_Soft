@@ -304,11 +304,29 @@ namespace Livrable_AppliGraphique.Properties.Langs {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose a priority file (ex : txt).
+        /// </summary>
+        public static string priotityFile {
+            get {
+                return ResourceManager.GetString("priotityFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Restart.
         /// </summary>
         public static string restart {
             get {
                 return ResourceManager.GetString("restart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Save end, close the window.
+        /// </summary>
+        public static string saveEnd {
+            get {
+                return ResourceManager.GetString("saveEnd", resourceCulture);
             }
         }
         

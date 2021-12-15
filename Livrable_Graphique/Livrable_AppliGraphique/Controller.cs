@@ -18,6 +18,7 @@ namespace Livrable_AppliGraphique
         public bool stateSave;
         public bool flag;
         public bool stopSave;
+        public string priorityFile;
 
         public Controller()
         {
@@ -52,6 +53,7 @@ namespace Livrable_AppliGraphique
             save.serverManager = serverManager;
 
             save.SoftwareSocietyName = softwareSocietyName;
+            save.priorityFile = priorityFile;
             save.Extension = Extention;
             save.EnterpriseSoftwareRunning(softwareSocietyName);
 

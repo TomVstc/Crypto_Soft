@@ -198,8 +198,14 @@
   <data name="openSoftware" xml:space="preserve">
     <value>Vous devez fermez le logiciel, voulez-vous le fermez ?</value>
   </data>
+  <data name="priorityFile" xml:space="preserve">
+    <value>Choisir un fichier prioritaire (ex : txt)</value>
+  </data>
   <data name="restart" xml:space="preserve">
     <value>Redémarrer</value>
+  </data>
+  <data name="saveEnd" xml:space="preserve">
+    <value>Votre sauvegarde est terminé veuillez fermer la page</value>
   </data>
   <data name="saveExit" xml:space="preserve">
     <value>Sauvegarde annulé veuillez quitter la fenêtre</value>

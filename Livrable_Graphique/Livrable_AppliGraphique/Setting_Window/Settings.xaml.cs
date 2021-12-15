@@ -72,5 +72,12 @@ namespace Livrable_AppliGraphique
             objExtensionWindow.Show();
             this.Close();
         }
+
+        private void Button_Priority_File_Click(object sender, RoutedEventArgs e)
+        {
+            PriorityFileWindow objPriorityFile = new PriorityFileWindow(Controller);
+            objPriorityFile.Show();
+            this.Close();
+        }
     }
 }

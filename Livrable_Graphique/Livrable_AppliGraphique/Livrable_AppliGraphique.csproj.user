@@ -22,6 +22,9 @@
     <Compile Update="Setting_Window\ExtensionWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Setting_Window\PriorityFileWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Setting_Window\SelectLanguage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -54,6 +57,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Setting_Window\ExtensionWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Setting_Window\PriorityFileWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Setting_Window\SelectLanguage.xaml">

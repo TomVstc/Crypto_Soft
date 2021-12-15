@@ -1,11 +1,11 @@
-﻿<Window x:Class="Livrable_AppliGraphique.Settings"
+﻿<Window x:Class="Livrable_AppliGraphique.Setting_Window.PriorityFileWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Livrable_AppliGraphique"
+        xmlns:local="clr-namespace:Livrable_AppliGraphique.Setting_Window"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800"
+        Title="PriorityFileWindow" Height="450" Width="800"
         xmlns:language="clr-namespace:Livrable_AppliGraphique.Properties.Langs"
         Background="#65DCE0"
         WindowStyle="None"
@@ -24,10 +24,14 @@
                 BorderThickness="0" HorizontalAlignment="Right" 
                 Margin="0,20,20,0" Click="Button_Click">
             </Button>
-            <Button x:Name ="Button_Language" Content="{x:Static language:Lang.language}" Width="150" Height="60" Click="Button_Language_Click"/>
-            <Button Name ="Button_Entreprise_software" Content="{x:Static language:Lang.software_society}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_Entreprise_software_Click"/>
-            <Button Name ="Button_Extension" Content="{x:Static language:Lang.extension}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_Extension_Click"/>
-            <Button Name ="Button_Priority_File" Content="{x:Static language:Lang.priotityFile}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_Priority_File_Click"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="229" Margin="0,30,0,0">
+                <TextBlock TextAlignment="Center" Text="{x:Static language:Lang.priotityFile}"></TextBlock>
+
+                <TextBox Name="TextBox_priorityFile_Name" Margin="0,30,0,0" ></TextBox>
+                <Button Name="Button_submit" Content="{x:Static language:Lang.confirm}"
+                        Width="170" Height="30" Margin="0,30,0,0" Click="Button_submit_Click"/>
+
+            </StackPanel>
 
         </StackPanel>
 

@@ -198,8 +198,14 @@
   <data name="openSoftware" xml:space="preserve">
     <value>You have to close your enterprise software if you want to continue the backup. Do you want to close it ?</value>
   </data>
+  <data name="priotityFile" xml:space="preserve">
+    <value>Choose a priority file (ex : txt)</value>
+  </data>
   <data name="restart" xml:space="preserve">
     <value>Restart</value>
+  </data>
+  <data name="saveEnd" xml:space="preserve">
+    <value>Save end, close the window</value>
   </data>
   <data name="saveExit" xml:space="preserve">
     <value>Save cancel, close the window</value>
