@@ -281,6 +281,7 @@ namespace Livrable_AppliGraphique.Model
                         Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, (SendOrPostCallback)delegate {
 
                             serverManager.progress_barre.Value = pourcentage;
+                            serverManager.pourcentageLaben.Content = pourcentage + "%";
 
                         }, null);
                     }).Start();

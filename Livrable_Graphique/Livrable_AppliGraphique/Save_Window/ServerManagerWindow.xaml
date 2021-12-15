@@ -17,6 +17,7 @@
         <Button Name="Exit_Button" Content="{x:Static language:Lang.exitSave}" HorizontalAlignment="Left" Margin="598,217,0,0" VerticalAlignment="Top" Height="69" Width="112" Click="Exit_Button_Click"/>
         <Label Name="stateSave" Content="{x:Static language:Lang.loadingSave}" HorizontalAlignment="Left" Margin="245,149,0,0" VerticalAlignment="Top" Width="339"/>
         <Label Content="{x:Static language:Lang.stateSave}" HorizontalAlignment="Left" Margin="98,149,0,0" VerticalAlignment="Top" Width="134"/>
+        <Label Name="pourcentageLaben" Content="0%" HorizontalAlignment="Center" Margin="0,73,0,0" VerticalAlignment="Top" Width="56" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>
