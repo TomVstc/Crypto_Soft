@@ -1,0 +1,60 @@
+﻿<Window x:Class="Livrable_AppliGraphique.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Livrable_AppliGraphique"
+        mc:Ignorable="d"
+        Title="Settings" Height="450" Width="800"
+        xmlns:language="clr-namespace:Livrable_AppliGraphique.Properties.Langs"
+        Background="#65DCE0"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="Black">
+        <!-- MAIN Windows -->
+        <StackPanel Margin="70,0,0,0"
+                    Background="White">
+            <Button
+                Content="{x:Static language:Lang.leave}"
+                Grid.Column="1"               
+                Grid.Row="1"
+                Height="40"
+                Width="40"
+                BorderThickness="0" HorizontalAlignment="Right" 
+                Margin="0,20,20,0" Click="Button_Click">
+            </Button>
+            <Button x:Name ="Button_Language" Content="{x:Static language:Lang.language}" Width="150" Height="60" Click="Button_Language_Click"/>
+            <Button Name ="Button_Entreprise_software" Content="{x:Static language:Lang.software_society}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_Entreprise_software_Click"/>
+            <Button Name ="Button_Extension" Content="{x:Static language:Lang.extension}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_Extension_Click"/>
+            <Button Name ="Button_Priority_File" Content="{x:Static language:Lang.priotityFile}" Width="150" Height="60" Margin="0,30,0,0" Click="Button_Priority_File_Click"/>
+
+        </StackPanel>
+
+        <!-- ##################################################### -->
+        <!-- Menu on the Left -->
+        <StackPanel Margin="0,0,730,0"
+                    Background="Gray">
+            <!-- Home Button -->
+            <Button Name="btn_home" Height="40" Width="40" VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center" Panel.ZIndex="0" 
+                    Click="btn_home_Click"
+                    Content="{x:Static language:Lang.button_home}" Margin="0,30,0,0" >
+            </Button>
+            <!-- Save Button -->
+            <Button Name="btn_save" Height="40" Width="40" VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center" Panel.ZIndex="0" 
+                    Click="btn_save_Click"
+                    Content="{x:Static language:Lang.button_save}" Margin="0,30,0,0">
+            </Button>
+            <!-- Settings Button -->
+            <Button Name="btn_setting" Height="40" Width="40" VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center" Panel.ZIndex="0" 
+                    Click="Button_Setting_Click"
+                    Content="{x:Static language:Lang.settings}" Margin="0,30,0,0">
+            </Button>
+        </StackPanel>
+        <!-- ##################################################### -->
+
+    </Grid>
+</Window>

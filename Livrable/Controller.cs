@@ -81,11 +81,6 @@ namespace Livrable
         public void createSave()
         {
             model.createSave();
-        }
-        //public void createDailyLog()
-        //{
-        //    viewDailyLog.getValuesSave(viewDailyLog);
-        //    model.createDailyLog(viewDailyLog);
-        //}      
+        }  
     }
 }
